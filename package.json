@@ -1,10 +1,12 @@
 {
-  "name": "vue-materia",
+  "name": "@materiajs/vue-materia",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "main": "./dist/vue-materia.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build-bundle": "vue-cli-service build --target lib --name vue-materia ./src/index.js",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
@@ -13,6 +15,7 @@
     "core-js": "^2.6.5",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
+    "vue-mq": "^1.0.1",
     "vue-property-decorator": "^8.1.0"
   },
   "devDependencies": {
@@ -34,5 +37,11 @@
     "ts-jest": "^23.0.0",
     "typescript": "^3.4.3",
     "vue-template-compiler": "^2.6.10"
-  }
+  },
+  "files": [
+    "dist/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ],,
 }

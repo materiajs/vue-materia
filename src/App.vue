@@ -1,30 +1,42 @@
 <template>
   <div id="app">
-    <mat-toolbar color="primary">Hello</mat-toolbar>
-    <iframe src="https://local.hubspot.com/test-notifications-example-app/6096958/?openSidebar=tue" frameborder="0" width="100%" height="100%"></iframe>
+    <mat-toolbar shadow="true" color="primary">Hello</mat-toolbar>
+    <div class="main">
+      <mat-button color="primary-3" space="right">Test</mat-button>
+      <mat-button color="primary" space="right" :outline="true">Test</mat-button>
+      <mat-button color="primary-4" space="right" :outline="true">Test</mat-button>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import MatToolbar from './components/atoms/Toolbar.vue';
+import MatButton from './components/atoms/MatButton.vue';
 
 @Component({
   components: {
+    MatButton,
     MatToolbar,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+}
 </script>
 
 <style lang="scss">
+  @import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
   body, html {
     padding: 0;
     margin: 0;
   }
   #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-family: Nunito, 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    .main {
+      padding: 15px;
+    }
   }
 </style>
