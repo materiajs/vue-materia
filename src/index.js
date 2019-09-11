@@ -5,11 +5,15 @@ import MatBackground from './directives/background';
 import MatSetColor from './directives/set-color';
 import MatRipple from './directives/ripple';
 
-// const components = {
-//   ...blocks,
-//   ...composites,
-//   ...structures,
-// };
+import * as blocks from './components/blocks/index';
+import * as composites from './components/composites/index';
+import * as structures from './components/structures/index';
+
+const components = {
+  ...blocks,
+  ...composites,
+  ...structures,
+};
 
 export default {
   install: (Vue, { options }) => {
@@ -19,10 +23,10 @@ export default {
     Vue.directive('mat-ripple', MatRipple);
 
     // Vue.prototype.$materiajs = $materiajs;
-    // Object.keys(components)
-    //   .forEach((name) => {
-    //     Vue.component(name, components[name]);
-    //   });
+    Object.keys(components)
+      .forEach((name) => {
+        Vue.component(name, components[name]);
+      });
     theme.setTheme(theme.themes.palette1);
     // Overwrite
     if (options.theme) {
