@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import MatToolbar from './components/atoms/Toolbar.vue';
+import MatToolbar from './components/atoms/MatToolbar.vue';
 import MatButton from './components/atoms/MatButton.vue';
 
 @Component({
