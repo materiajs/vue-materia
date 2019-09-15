@@ -48,7 +48,6 @@ export { default as MatMenu } from './menu/Menu.vue';
 export { default as MatModal } from './modal/Modal.vue';
 
 // Navigation
-export { default as MatToolbar } from './toolbar/Toolbar.vue';
 export { default as MatNavLink } from './navigation/NavLink.vue';
 export { default as MatSidebar } from './navigation/Sidebar.vue';
 export { default as MatSidebarHeader } from './navigation/SidebarHeader.vue';
