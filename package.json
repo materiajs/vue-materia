@@ -1,6 +1,6 @@
 {
   "name": "@materiajs/vue-materia",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "private": false,
   "main": "./src/vue-materia.common.js",
   "scripts": {
