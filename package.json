@@ -41,7 +41,7 @@
   },
   "files": [
     "dist/*",
-    "public/*",
+    "src/*",
     "*.json",
     "*.js"
   ]
