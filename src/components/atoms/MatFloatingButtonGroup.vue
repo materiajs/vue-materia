@@ -8,24 +8,31 @@
 </template>
 
 <script>
-import t from 'vue-types';
+import { Component } from 'vue-property-decorator';
+import MatThemeComponent from './MatThemeComponent.vue';
 
-export default {
-  name: 'FloatingButtonGroup',
+@Component({
+  functional: true,
   props: {
-    bottom: t.string.def('30px'),
-    right: t.string.def('30px'),
-  },
-  computed: {
-    floatingButtonGroupStyle() {
-      const { right, bottom } = this;
-      return {
-        right,
-        bottom,
-      };
+    bottom: {
+      type: String,
+      default: '30px',
+    },
+    right: {
+      type: String,
+      default: '30px',
     },
   },
-};
+})
+export default class MatFloatingButtonGroup extends MatThemeComponent {
+  get floatingButtonGroupStyle() {
+    const { right, bottom } = this;
+    return {
+      right,
+      bottom,
+    };
+  }
+}
 </script>
 
 <style scoped lang="scss">
