@@ -2,14 +2,12 @@ import { DirectiveOptions } from 'vue';
 
 const directive: DirectiveOptions = {
   bind(el: HTMLElement, binding) {
-    if (binding.value) {
-      el.style.setProperty('--color', `var(--${binding.value})`);
-    }
+    const { value } = binding;
+    el.style.setProperty('--color', `var(--${value})`);
   },
   update(el, binding) {
-    if (binding.value) {
-      el.style.setProperty('--color', `var(--${binding.value})`);
-    }
+    const { value } = binding;
+    el.style.setProperty('--color', `var(--${value})`);
   },
 };
 

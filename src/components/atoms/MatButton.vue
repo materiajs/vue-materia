@@ -1,32 +1,45 @@
-<template functional>
-  <button
-    v-mat-ripple
-    v-on="listeners"
-    :class="[`space-${props.space}`, props.outline ? 'outline' : '']"
-    class="mat-button"
-    v-mat-roundable="props.round"
-    v-mat-set-color="props.color"
-    v-mat-background:[props.gradient]="[props.color, props.gradientColor]"
-  >
-    <slot />
-  </button>
-</template>
 <script>
-import { Component, Vue } from 'vue-property-decorator';
+import Vue from 'vue';
+import { Component } from 'vue-property-decorator';
+import MatThemeComponent from './MatThemeComponent.vue';
 
 @Component({
+  functional: true,
   props: {
-    color: String,
+    color: {
+      type: String,
+      default: 'primary',
+    },
     gradient: String,
     gradientColor: String,
     round: String,
-    outline: Boolean,
-    shadow: Boolean,
+    // eslint-disable-next-line no-bitwise
+    outline: Boolean | String,
+    // eslint-disable-next-line no-bitwise
+    shadow: Boolean | String,
     size: String,
     space: String,
   },
 })
-export default class MatButton extends Vue {
+export default class MatButton extends MatThemeComponent {
+  render(createElement, { props, listeners, slots }) {
+    return createElement(
+      'button',
+      {
+        class: [
+          'mat-button',
+          `space-${props.space}`, props.outline ? 'outline' : '', props.shadow ? 'shadow' : ''
+        ],
+        style: props.initTheme(props),
+        directives: [
+          {
+            name: 'mat-ripple',
+          },
+        ],
+      },
+      slots().default,
+    );
+  }
 }
 </script>
 
@@ -35,6 +48,7 @@ export default class MatButton extends Vue {
   .mat-button {
     align-items: center;
     background: none;
+    color: var(--text-color);
     border-radius: 5px;
     border: none;
     cursor: pointer;
@@ -46,6 +60,7 @@ export default class MatButton extends Vue {
     transition: all 0.15s cubic-bezier(.41,.15,.55,1.19);
     white-space: nowrap;
     z-index: 3;
+    user-select: none;
     &.space {
       &-right {
         margin-right: 10px;
@@ -57,8 +72,10 @@ export default class MatButton extends Vue {
     >* {
       min-width: 15px;
     }
-    &:hover {
-      box-shadow: $box-shadow-light;
+    &.shadow {
+      &:hover {
+        box-shadow: $box-shadow-light;
+      }
     }
     &.outline {
       background: none !important;

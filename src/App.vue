@@ -1,8 +1,17 @@
 <template>
   <div id="app">
-    <mat-toolbar shadow="true" color="primary">Hello</mat-toolbar>
+    <mat-toolbar
+      shadow="true"
+      color="primary"
+    >
+      <mat-button color="primary-7">Hello</mat-button>
+      <mat-input v-model="item" />
+    </mat-toolbar>
     <div class="main">
-      <mat-button color="primary-3" space="right">Test</mat-button>
+      <mat-input v-model="item"  />
+      <br>
+      <mat-button v-mat-ripple outline="true">Hello</mat-button>
+      <mat-button space="right">Test</mat-button>
       <mat-button color="primary" space="right" :outline="true">Test</mat-button>
       <mat-button color="primary-4" space="right" :outline="true">Test</mat-button>
     </div>
@@ -13,12 +22,17 @@
 import { Component, Vue } from 'vue-property-decorator';
 import MatToolbar from './components/atoms/MatToolbar.vue';
 import MatButton from './components/atoms/MatButton.vue';
+import MatInput from './components/atoms/MatInput.vue';
 
 @Component({
   components: {
     MatButton,
     MatToolbar,
+    MatInput,
   },
+  data: () => ({
+    item: '',
+  }),
 })
 export default class App extends Vue {
 }

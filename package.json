@@ -2,17 +2,18 @@
   "name": "@materiajs/vue-materia",
   "version": "0.1.0",
   "private": false,
-  "main": "./dist/vue-materia.common.js",
+  "main": "./src/index.ts",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build-bundle": "vue-cli-service build --target lib --name vue-materia ./src/index.js",
+    "build-bundle": "vue-cli-service build --target lib --name vue-materia src/index.ts",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "@materiajs/theme": "^1.0.2",
+    "@materiajs/theme": "^1.0.7",
     "core-js": "^2.6.5",
+    "node-waves": "^0.7.6",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
     "vue-mq": "^1.0.1",
