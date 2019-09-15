@@ -2,7 +2,7 @@
   "name": "@materiajs/vue-materia",
   "version": "0.1.4",
   "private": false,
-  "main": "./src/vue-materia.common.js",
+  "main": "./dist/vue-materia.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
