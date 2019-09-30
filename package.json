@@ -13,11 +13,16 @@
   "dependencies": {
     "@materiajs/theme": "^1.0.7",
     "core-js": "^2.6.5",
+    "fuse.js": "^3.4.5",
     "node-waves": "^0.7.6",
+    "swipejs": "^2.2.14",
+    "velocity-animate": "^1.5.2",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
+    "vue-clickaway": "^2.2.2",
     "vue-mq": "^1.0.1",
-    "vue-property-decorator": "^8.1.0"
+    "vue-property-decorator": "^8.1.0",
+    "vue-types": "^1.6.0"
   },
   "devDependencies": {
     "@types/jest": "^23.1.4",
