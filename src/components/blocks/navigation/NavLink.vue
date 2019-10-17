@@ -3,6 +3,7 @@
     @click="$emit('click')"
     class="mat-nav-link mat-flex-center mat-standard-transition"
     @click.native="e => $emit('click.native', e)"
+    v-mat-ripple
   >
     <div class="mat-nav-link-wrapper">
       <template v-if="href">
@@ -29,20 +30,23 @@ export default {
 
 <style scoped lang="scss">
   .mat-nav-link {
-    text-decoration: none;
+    align-items: center;
     color: inherit;
     cursor: pointer;
+    display: flex;
     height: 100%;
+    justify-content: center;
+    padding: 0 15px;
     position: relative;
+    text-decoration: none;
     user-select: none;
-    border-radius: 3px;
     a {
       color: inherit;
       text-decoration: none;
     }
 
     &:hover {
-      background: rgba(0,0,0,0.1);
+      background: rgba(0,0,0,0.075);
     }
     &-wrapper {
       min-width: 60px;

@@ -10,3 +10,6 @@ export { default as MatInput } from './MatInput.vue';
 // Toolbar
 export { default as MatToolbar } from './MatToolbar.vue';
 
+// Swipe
+export { default as MatSwipe } from './MatSwipe.vue';
+export { default as MatSwipeItem } from './MatSwipeItem.vue';

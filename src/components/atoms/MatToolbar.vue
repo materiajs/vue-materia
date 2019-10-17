@@ -43,6 +43,7 @@ export default class Toolbar extends MatThemeComponent {
   align-items: center;
   background: var(--color);
   border-radius: var(--round);
+  color: var(--text-color);
   display: flex;
   height: 60px;
   position: relative;

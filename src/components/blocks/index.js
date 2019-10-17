@@ -53,10 +53,6 @@ export { default as MatSidebar } from './navigation/Sidebar.vue';
 export { default as MatSidebarHeader } from './navigation/SidebarHeader.vue';
 export { default as MatSidebarItem } from './navigation/SidebarItem.vue';
 
-// Swipe
-export { default as MatSwipe } from './swipe/Swipe.vue';
-export { default as MatSwipeItem } from './swipe/SwipeItem.vue';
-
 // Tabs
 export { default as MatTabs } from './tabs/TabsComponent.vue';
 export { default as MatTab } from './tabs/TabComponent.vue';

@@ -17,8 +17,12 @@ const components = {
   ...structures,
 };
 
+interface Options {
+  theme: string,
+}
+
 export default {
-  install: (Vue: VueInterface, options) => {
+  install: (Vue: VueInterface, options: Options) => {
     Vue.directive('mat-background', MatBackground);
     Vue.directive('mat-set-color', MatSetColor);
     Vue.directive('mat-ripple', MatRipple);

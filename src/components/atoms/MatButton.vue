@@ -47,7 +47,7 @@ export default class MatButton extends MatThemeComponent {
   @import "../../styles/main";
   .mat-button {
     align-items: center;
-    background: none;
+    background: var(--color);
     color: var(--text-color);
     border-radius: 5px;
     border: none;

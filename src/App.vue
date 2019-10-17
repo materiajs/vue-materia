@@ -10,7 +10,7 @@
     <div class="main">
       <mat-input v-model="item"  />
       <br>
-      <mat-button v-mat-ripple outline="true">Hello</mat-button>
+      <mat-button space="right" v-mat-ripple outline="true">Hello</mat-button>
       <mat-button space="right">Test</mat-button>
       <mat-button color="primary" space="right" :outline="true">Test</mat-button>
       <mat-button color="primary-4" space="right" :outline="true">Test</mat-button>
