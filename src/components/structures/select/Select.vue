@@ -55,7 +55,7 @@ import isEmpty from 'lodash/isEmpty';
 import isArray from 'lodash/isArray';
 import Fuse from 'fuse.js';
 import MatInput from '../../atoms/MatInput.vue';
-import MatList from '../../blocks/list/List.vue';
+import MatList from '../../atoms/MatList.vue';
 import MatCheckbox from '../../blocks/checkbox/Checkbox.vue';
 import MatMenu from '../../blocks/menu/Menu.vue';
 import MatChipList from '../../composites/chip/ChipList.vue';

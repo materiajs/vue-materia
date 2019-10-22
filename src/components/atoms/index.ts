@@ -13,3 +13,7 @@ export { default as MatToolbar } from './MatToolbar.vue';
 // Swipe
 export { default as MatSwipe } from './MatSwipe.vue';
 export { default as MatSwipeItem } from './MatSwipeItem.vue';
+
+// List
+export { default as MatList } from './MatList.vue';
+export { default as MatListItem } from './MatListItem.vue';

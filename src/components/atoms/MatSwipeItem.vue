@@ -10,6 +10,7 @@ import MatThemeComponent from './MatThemeComponent.vue';
   },
 })
 export default class MatSwipe extends MatThemeComponent {
+  // eslint-disable-next-line
   render(createElement, { props, listeners, slots }) {
     return createElement(
       'div',

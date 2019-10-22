@@ -26,10 +26,6 @@ export { default as MatPageLayout } from './layout/PageLayout.vue';
 export { default as MatScrollbarLayout } from './layout/ScrollbarLayout.vue';
 export { default as MatSpacer } from './layout/Spacer.vue';
 
-// List
-export { default as MatList } from './list/List.vue';
-export { default as MatListItem } from './list/ListItem.vue';
-
 // Logo
 export { default as MateriaLogo } from './logo/MateriaLogo.vue';
 

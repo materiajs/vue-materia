@@ -3,9 +3,11 @@
     v-on="listeners.click ? { click: listeners.click } : {}"
     :class="{ active: props.active }"
     class="mat-list-item"
-    v-mat-round="props.round"
   >
-    <slot />
+    <a v-if="props.href" :href="props.href">
+      <slot></slot>
+    </a>
+    <slot v-else />
   </div>
 </template>
 
@@ -17,6 +19,7 @@ export default {
   props: {
     active: t.bool.def(false),
     color: t.string.def(''),
+    href: t.string,
   },
 };
 </script>
