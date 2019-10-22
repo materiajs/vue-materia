@@ -22,15 +22,21 @@ import MatThemeComponent from './MatThemeComponent.vue';
   },
 })
 export default class MatButton extends MatThemeComponent {
+  // eslint-disable-next-line
   render(createElement, { props, listeners, slots }) {
     return createElement(
       'button',
       {
         class: [
           'mat-button',
-          `space-${props.space}`, props.outline ? 'outline' : '', props.shadow ? 'shadow' : ''
+          `space-${props.space}`, props.outline ? 'outline' : '', props.shadow ? 'shadow' : '',
         ],
         style: props.initTheme(props),
+        on: {
+          click: (e) => {
+            listeners.click(e);
+          },
+        },
         directives: [
           {
             name: 'mat-ripple',

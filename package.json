@@ -2,17 +2,23 @@
   "name": "@materiajs/vue-materia",
   "version": "0.1.7",
   "private": false,
-  "main": "./dist/vue-materia.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build-bundle": "vue-cli-service build --target lib --name vue-materia src/index.ts",
+    "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit"
+    "build-bundle": "vue-cli-service build --target lib --name vue-materia src/index.ts"
   },
+  "main": "./dist/vue-materia.common.js",
+  "files": [
+    "dist/*",
+    "src/*",
+    "*.json",
+    "*.js"
+  ],
   "dependencies": {
     "@materiajs/theme": "^1.0.7",
-    "core-js": "^2.6.5",
+    "core-js": "^3.1.2",
     "fuse.js": "^3.4.5",
     "node-waves": "^0.7.6",
     "swipejs": "^2.2.14",
@@ -26,11 +32,11 @@
   },
   "devDependencies": {
     "@types/jest": "^23.1.4",
-    "@vue/cli-plugin-babel": "^3.11.0",
-    "@vue/cli-plugin-eslint": "^3.11.0",
-    "@vue/cli-plugin-typescript": "^3.11.0",
-    "@vue/cli-plugin-unit-jest": "^3.11.0",
-    "@vue/cli-service": "^3.11.0",
+    "@vue/cli-plugin-babel": "^4.0.3",
+    "@vue/cli-plugin-eslint": "^4.0.3",
+    "@vue/cli-plugin-typescript": "^4.0.3",
+    "@vue/cli-plugin-unit-jest": "^4.0.3",
+    "@vue/cli-service": "^4.0.3",
     "@vue/eslint-config-airbnb": "^4.0.0",
     "@vue/eslint-config-typescript": "^4.0.0",
     "@vue/test-utils": "1.0.0-beta.29",
@@ -43,11 +49,5 @@
     "ts-jest": "^23.0.0",
     "typescript": "^3.4.3",
     "vue-template-compiler": "^2.6.10"
-  },
-  "files": [
-    "dist/*",
-    "src/*",
-    "*.json",
-    "*.js"
-  ]
+  }
 }

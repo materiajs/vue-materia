@@ -15,9 +15,9 @@ export default {
     resizeAllGridItems() {
       this.$nextTick(() => {
         this.$children[0].children
-          .forEach(el => {
+          .forEach((el) => {
             this.resizeGridItem(el);
-          })
+          });
       });
     },
 
@@ -30,7 +30,7 @@ export default {
       const rowSpan = Math.ceil((item.child.$el.scrollHeight + rowGap) / (rowHeight + rowGap));
       item.child.$el.style.gridRowEnd = `span ${rowSpan}`;
     },
-  }
+  },
 };
 </script>
 
