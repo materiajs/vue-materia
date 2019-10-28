@@ -11,7 +11,7 @@ try {
       const source = fs.readFileSync(path, 'utf-8');
       const component = parser(source);
       const propertyName = path.split('/').pop().replace('.vue', '');
-      parserRes[component.componentDesc.name || propertyName] = component;
+      parserRes[propertyName] = component;
     });
     const path = './dist/vuese.json';
     fs.writeFileSync(path, JSON.stringify(parserRes, null, 2));

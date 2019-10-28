@@ -14,10 +14,12 @@
 import { Component, Prop } from 'vue-property-decorator';
 import MatThemeComponent from './MatThemeComponent.vue';
 
-@Component()
-// Button component
+@Component({})
+// @name MatButton
+// @displayName Button
+// @tag mat-button
 // @group Buttons
-// @name Button
+// Button component
 export default class MatButton extends MatThemeComponent {
   @Prop({ default: 'primary', type: String })
   color;
