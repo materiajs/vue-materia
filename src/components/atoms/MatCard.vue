@@ -8,6 +8,10 @@
 import t from 'vue-types';
 import { defaultAccentColor } from '../../mixins/themeable';
 
+// @name MatCard
+// @displayName Card
+// @tag mat-card
+// Card component
 export default {
   name: 'Card',
   props: {
