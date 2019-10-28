@@ -21,17 +21,23 @@ import MatThemeComponent from './MatThemeComponent.vue';
 export default class MatButton extends MatThemeComponent {
   @Prop({ default: 'primary', type: String })
   color;
+
   @Prop({ type: String })
   gradient;
+
   @Prop({ type: String })
   gradientColor;
+
   @Prop({ type: Boolean })
   shadow;
+
   // ['xs', 'small']
   @Prop({ type: String })
   size;
+
   @Prop({ type: Boolean })
   outline;
+
   @Prop({ type: String })
   space;
 }

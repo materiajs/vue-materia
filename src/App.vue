@@ -34,7 +34,6 @@ import MatButton from './components/atoms/MatButton.vue';
 import MatInput from './components/atoms/MatInput.vue';
 import MatModal from './components/atoms/MatModal.vue';
 import MatCard from './components/atoms/MatCard.vue';
-import vuese from './vuese.json';
 
 @Component({
   components: {
@@ -52,20 +51,16 @@ export default class App extends Vue {
   modal = false;
 
   get getModal() {
-    console.log(vuese);
     return this.modal;
   }
 
   set getModal(value) {
-    console.log('settings', value);
     this.modal = value;
     this.$forceUpdate();
   }
 
   setModal() {
     this.modal = true;
-    console.log('log');
-    console.log(this.modal);
     this.$forceUpdate();
   }
 }
