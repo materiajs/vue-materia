@@ -23,3 +23,7 @@ export { default as MatListItem } from './MatListItem.vue';
 
 // Modal
 export { default as MatModal } from './MatModal.vue';
+
+// Navigation
+export { default as MatSidebar } from './MatSidebar.vue';
+export { default as MatNavLink } from './MatNavLink.vue';

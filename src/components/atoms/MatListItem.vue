@@ -3,6 +3,7 @@
     v-on="listeners.click ? { click: listeners.click } : {}"
     :class="{ active: props.active }"
     class="mat-list-item"
+    v-mat-ripple
   >
     <a v-if="props.href" :href="props.href">
       <slot></slot>

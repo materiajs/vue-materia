@@ -39,9 +39,6 @@ export { default as MatTextArea } from './input/TextArea.vue';
 // Menu
 export { default as MatMenu } from './menu/Menu.vue';
 
-// Navigation
-export { default as MatNavLink } from './navigation/NavLink.vue';
-export { default as MatSidebar } from './navigation/Sidebar.vue';
 export { default as MatSidebarHeader } from './navigation/SidebarHeader.vue';
 export { default as MatSidebarItem } from './navigation/SidebarItem.vue';
 

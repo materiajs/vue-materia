@@ -4,6 +4,9 @@ import App from './App.vue';
 import MatBackground from './directives/background';
 import MatSetColor from './directives/set-color';
 import MatRipple from './directives/ripple';
+import VueMateria from './index';
+
+Vue.use(VueMateria);
 
 Vue.config.productionTip = false;
 theme.setTheme(theme.themes.palette1);
