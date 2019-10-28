@@ -15,6 +15,10 @@ import MatThemeComponent from './MatThemeComponent.vue';
     size: String,
   },
 })
+// @name MatToolbar
+// @displayName Toolbar
+// @tag mat-toolbar
+// Toolbar component used for panel and page headers
 export default class Toolbar extends MatThemeComponent {
   // eslint-disable-next-line class-methods-use-this
   render(createElement, { props, listeners, slots }) {
