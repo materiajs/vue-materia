@@ -7,7 +7,6 @@ export { default as MatCheckbox } from './checkbox/Checkbox.vue';
 export { default as MatBlock } from './block/Block.vue';
 
 // Container
-export { default as MatCard } from './container/Card.vue';
 export { default as MatContainer } from './container/Container.vue';
 export { default as MatMargin } from './container/MarginComponent.vue';
 export { default as MatPadding } from './container/PaddingComponent.vue';
@@ -39,9 +38,6 @@ export { default as MatTextArea } from './input/TextArea.vue';
 
 // Menu
 export { default as MatMenu } from './menu/Menu.vue';
-
-// Modal
-export { default as MatModal } from './modal/Modal.vue';
 
 // Navigation
 export { default as MatNavLink } from './navigation/NavLink.vue';

@@ -1,12 +1,12 @@
 <template>
-  <div :class="{ 'mat-card': !hideOnMqSet }" :style="_getStyle">
+  <div :class="[ 'mat-card']" :style="getStyle">
     <slot />
   </div>
 </template>
 
 <script>
 import t from 'vue-types';
-import { defaultAccentColor } from '../../../mixins/themeable';
+import { defaultAccentColor } from '../../mixins/themeable';
 
 export default {
   name: 'Card',
@@ -17,18 +17,18 @@ export default {
     padding: t.string.def('15px'),
   },
   computed: {
-    mqHideList() {
-      const mqs = Object.keys(this.$mqAvailableBreakpoints);
-      const i = mqs.findIndex(mq => mq === this.hideOnMq);
-      if (i > -1) {
-        return mqs.slice(0, i + 1);
-      }
-      return [];
-    },
-    hideOnMqSet() {
-      return this.mqHideList.includes(this.$mq);
-    },
-    _getStyle() {
+    // mqHideList() {
+    //   const mqs = Object.keys(this.$mqAvailableBreakpoints);
+    //   const i = mqs.findIndex(mq => mq === this.hideOnMq);
+    //   if (i > -1) {
+    //     return mqs.slice(0, i + 1);
+    //   }
+    //   return [];
+    // },
+    // hideOnMqSet() {
+    //   return this.mqHideList.includes(this.$mq);
+    // },
+    getStyle() {
       return {
         background: this.background,
         padding: this.padding,
@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  @import "../../../styles/main";
+  @import "../../styles/main";
   // Card
   .mat-card {
     background: white;

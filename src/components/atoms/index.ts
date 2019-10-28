@@ -4,6 +4,9 @@ export { default as MatButton } from './MatButton.vue';
 export { default as MatButtonGroup } from './MatButtonGroup.vue';
 export { default as MatFloatingButtonGroup } from './MatFloatingButtonGroup.vue';
 
+// Card
+export { default as MatCard } from './MatCard.vue';
+
 // Input
 export { default as MatInput } from './MatInput.vue';
 
@@ -17,3 +20,6 @@ export { default as MatSwipeItem } from './MatSwipeItem.vue';
 // List
 export { default as MatList } from './MatList.vue';
 export { default as MatListItem } from './MatListItem.vue';
+
+// Modal
+export { default as MatModal } from './MatModal.vue';

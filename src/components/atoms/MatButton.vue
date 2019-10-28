@@ -1,51 +1,39 @@
-<script>
-import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
+<template functional>
+  <button
+    class="mat-button"
+    :class="[`space-${props.space}`, props.outline ? 'outline' : '', props.shadow ? 'shadow' : '']"
+    :style="props.initTheme(props)"
+    v-on="listeners"
+    v-mat-ripple
+  >
+    <slot />
+  </button>
+</template>
+
+<script type="text/tsx">
+import { Component, Prop } from 'vue-property-decorator';
 import MatThemeComponent from './MatThemeComponent.vue';
 
-@Component({
-  functional: true,
-  props: {
-    color: {
-      type: String,
-      default: 'primary',
-    },
-    gradient: String,
-    gradientColor: String,
-    round: String,
-    // eslint-disable-next-line no-bitwise
-    outline: Boolean | String,
-    // eslint-disable-next-line no-bitwise
-    shadow: Boolean | String,
-    size: String,
-    space: String,
-  },
-})
+@Component()
+// Button component
+// @group Buttons
+// @name Button
 export default class MatButton extends MatThemeComponent {
-  // eslint-disable-next-line
-  render(createElement, { props, listeners, slots }) {
-    return createElement(
-      'button',
-      {
-        class: [
-          'mat-button',
-          `space-${props.space}`, props.outline ? 'outline' : '', props.shadow ? 'shadow' : '',
-        ],
-        style: props.initTheme(props),
-        on: {
-          click: (e) => {
-            listeners.click(e);
-          },
-        },
-        directives: [
-          {
-            name: 'mat-ripple',
-          },
-        ],
-      },
-      slots().default,
-    );
-  }
+  @Prop({ default: 'primary', type: String })
+  color;
+  @Prop({ type: String })
+  gradient;
+  @Prop({ type: String })
+  gradientColor;
+  @Prop({ type: Boolean })
+  shadow;
+  // ['xs', 'small']
+  @Prop({ type: String })
+  size;
+  @Prop({ type: Boolean })
+  outline;
+  @Prop({ type: String })
+  space;
 }
 </script>
 

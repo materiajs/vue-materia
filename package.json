@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "build-bundle": "vue-cli-service build --target lib --name vue-materia src/index.ts"
+    "build-bundle": "vue-cli-service build --target lib --name vue-materia src/index.ts && npm run build-vuese",
+    "build-vuese": "node ./src/vuese"
   },
   "main": "./dist/vue-materia.common.js",
   "files": [
@@ -18,8 +19,11 @@
   ],
   "dependencies": {
     "@materiajs/theme": "^1.0.7",
+    "@vuese/parser": "^2.4.3",
     "core-js": "^3.1.2",
+    "fs": "0.0.1-security",
     "fuse.js": "^3.4.5",
+    "glob": "^7.1.5",
     "node-waves": "^0.7.6",
     "swipejs": "^2.2.14",
     "velocity-animate": "^1.5.2",
