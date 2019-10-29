@@ -23,21 +23,10 @@
         </mat-list>
       </mat-sidebar>
       <div class="body">
-        <mat-input v-model="item"  />
-        <br>
-        <mat-button space="right" v-mat-ripple :outline="true">Hello</mat-button>
-        <mat-button space="right">Test</mat-button>
-        <mat-button color="primary" space="right" :outline="true">Test</mat-button>
-        <mat-button color="primary-4"  space="right" :outline="true">Test</mat-button>
-        <mat-modal v-model="getModal">
-          <mat-card>
-            Yeow
-          </mat-card>
-          <mat-button>
-            Test
-          </mat-button>
-        </mat-modal>
-        <mat-button @click="() => setModal(!getModal)">Modal</mat-button>
+        <mat-button @click="menu = true">Test</mat-button>
+        <mat-menu v-model="menu">
+          <mat-button>Test</mat-button>
+        </mat-menu>
       </div>
     </div>
   </div>
@@ -48,12 +37,14 @@ import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
   data: () => ({
-    item: '',
-    sidebar: false,
   }),
 })
 export default class App extends Vue {
   modal = false;
+
+  menu = false;
+
+  sidebar = false;
 
   get getModal() {
     return this.modal;

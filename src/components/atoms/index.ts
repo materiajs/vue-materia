@@ -21,6 +21,10 @@ export { default as MatSwipeItem } from './MatSwipeItem.vue';
 export { default as MatList } from './MatList.vue';
 export { default as MatListItem } from './MatListItem.vue';
 
+// Menu
+export { default as MatMenu } from './MatMenu.vue';
+
+
 // Modal
 export { default as MatModal } from './MatModal.vue';
 

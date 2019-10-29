@@ -57,7 +57,7 @@ import Fuse from 'fuse.js';
 import MatInput from '../../atoms/MatInput.vue';
 import MatList from '../../atoms/MatList.vue';
 import MatCheckbox from '../../blocks/checkbox/Checkbox.vue';
-import MatMenu from '../../blocks/menu/Menu.vue';
+import MatMenu from '../../atoms/MatMenu.vue';
 import MatChipList from '../../composites/chip/ChipList.vue';
 
 export default {

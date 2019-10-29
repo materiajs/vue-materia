@@ -36,9 +36,6 @@ export { default as MatAvatar } from './image/Avatar.vue';
 export { default as MatForm } from './input/MatForm.vue';
 export { default as MatTextArea } from './input/TextArea.vue';
 
-// Menu
-export { default as MatMenu } from './menu/Menu.vue';
-
 export { default as MatSidebarHeader } from './navigation/SidebarHeader.vue';
 export { default as MatSidebarItem } from './navigation/SidebarItem.vue';
 

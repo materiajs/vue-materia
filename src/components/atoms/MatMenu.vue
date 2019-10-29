@@ -10,8 +10,9 @@
         @click.stop="onClickOutside"
         class="overlay"></div>
     </transition>
-    <mat-transition
-      :transition-name="getTransitionName">
+    <transition
+      v-on="transitions.explode"
+    >
       <div
         v-if="value"
         :class="[position, size]"
@@ -19,7 +20,6 @@
         ref="menu-main"
       >
         <div
-          :style="getStyle"
           v-on-clickaway="onClickOutside"
           class="mat-menu-body mat-scrollbar-hidden
           mat-card-light mat-box-shadow-heavy">
@@ -29,21 +29,23 @@
           <slot />
         </div>
       </div>
-    </mat-transition>
+    </transition>
   </div>
 </template>
 
 <script>
 import { mixin as clickaway } from 'vue-clickaway';
 import t from 'vue-types';
-import sizeable from '../../../mixins/sizeable';
-import mediaQuery from '../../../mixins/media-query';
+import sizeable from '../../mixins/sizeable';
+import mediaQuery from '../../mixins/media-query';
+import transitions from '@/utils/transitions';
 
 export default {
   name: 'mat-menu',
   data: () => ({
     top: 0,
     left: 0,
+    transitions,
     originalParent: null,
   }),
   mixins: [
@@ -94,7 +96,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  @import "../../../styles/main";
+  @import "../../styles/main";
   .mat-menu-wrapper {
     &.root {
       position: fixed;
@@ -113,7 +115,6 @@ export default {
   .mat-menu {
     min-width: 280px;
     position: absolute;
-    top: 100%;
     z-index: 100;
     .header {
       position: sticky;
