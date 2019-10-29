@@ -34,6 +34,7 @@ export default {
         Vue.component(name, components[name]);
       });
     theme.setTheme(theme.themes.palette1);
+    theme.setTheme(theme.palette);
     // Overwrite
     if (options && options.theme) {
       theme.setTheme(theme.themes[options.theme]);
