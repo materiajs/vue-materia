@@ -63,7 +63,7 @@ export default {
     mediaQuery,
   ],
   props: {
-    color: t.string.def('white'),
+    color: t.string.def('default'),
     position: t.oneOf(['bottom-left', 'bottom-right']).def('bottom-left'),
     value: t.bool.def(false),
     root: t.bool.def(false),
@@ -135,6 +135,7 @@ export default {
       &-body {
         border-radius: 5px;
         max-height: 50vh;
+        background: var(--default);
       }
 
       &.bottom-right {

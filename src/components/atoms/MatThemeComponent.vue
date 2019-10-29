@@ -10,7 +10,7 @@ import theme from '@materiajs/theme';
         '--color': props.color ? `var(--${props.color})` : undefined,
         '--text-color': props.color
           ? theme.computeTextColor(
-            document.documentElement.style.getPropertyValue(props.color),
+            document.documentElement.style.getPropertyValue(`--${props.color}`),
             true,
           )
           : undefined,

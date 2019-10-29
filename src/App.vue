@@ -23,7 +23,16 @@
         </mat-list>
       </mat-sidebar>
       <div class="body">
+        <mat-toolbar :color="color && color.name">
+          {{ color && color.name }}
+        </mat-toolbar>
         <mat-color-select v-model="color" />
+        <mat-toolbar :color="color && color.name">
+          {{ color && color.name }}
+        </mat-toolbar>
+        <mat-toolbar :color="color && color.name">
+          {{ color && color.name }}
+        </mat-toolbar>
 <!--        <mat-menu v-model="menu">-->
 <!--          <mat-container-->
 <!--            slot="trigger"-->
