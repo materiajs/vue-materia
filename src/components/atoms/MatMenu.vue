@@ -4,6 +4,15 @@
     :class="{ root }"
     :style="{ top: `${top}px`, left: `${left}px`}"
   >
+    <div
+      @click="$emit('input', true)"
+    >
+      <slot name="trigger">
+        <div class="mat-menu-trigger">
+          Menu
+        </div>
+      </slot>
+    </div>
     <transition name="fade">
       <div
         v-if="(isMobile || root) && value"
@@ -111,34 +120,37 @@ export default {
       z-index: 15;
       left: 0;
     }
-  }
-  .mat-menu {
-    min-width: 280px;
-    position: absolute;
-    z-index: 100;
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 5;
+    .mat-menu-trigger {
+      cursor: pointer;
     }
-    &-body {
-      border-radius: 5px;
-      max-height: 50vh;
-    }
+    .mat-menu {
+      min-width: 280px;
+      position: absolute;
+      z-index: 100;
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+      }
+      &-body {
+        border-radius: 5px;
+        max-height: 50vh;
+      }
 
-    &.bottom-right {
-      right: 0;
-      &:before {
-        right: 7px;
-        left: unset;
+      &.bottom-right {
+        right: 0;
+        &:before {
+          right: 7px;
+          left: unset;
+        }
+        &:after {
+          right: 8px;
+          left: unset;
+        }
       }
-      &:after {
-        right: 8px;
-        left: unset;
+      &.large {
+        min-width: 480px;
       }
-    }
-    &.large {
-      min-width: 480px;
     }
   }
   @media screen and (max-width: 768px) {

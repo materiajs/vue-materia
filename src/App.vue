@@ -23,8 +23,13 @@
         </mat-list>
       </mat-sidebar>
       <div class="body">
-        <mat-button @click="menu = true">Test</mat-button>
         <mat-menu v-model="menu">
+          <mat-container
+            slot="trigger"
+            cursor="pointer"
+          >
+            Triggerrrr
+          </mat-container>
           <mat-button>Test</mat-button>
         </mat-menu>
       </div>

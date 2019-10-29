@@ -7,6 +7,9 @@ export { default as MatFloatingButtonGroup } from './MatFloatingButtonGroup.vue'
 // Card
 export { default as MatCard } from './MatCard.vue';
 
+// Container
+export { default as MatContainer } from './MatContainer.vue';
+
 // Input
 export { default as MatInput } from './MatInput.vue';
 

@@ -11,7 +11,7 @@ const setVelocity = styles => (el, done) => {
   if (styles) {
     Velocity(el, styles, {
       complete: done,
-      duration: 300,
+      duration: 200,
       easing: [700, 50],
     });
   }
@@ -25,9 +25,9 @@ export default {
   }),
   explode: {
     beforeEnter: setup({ 'transform-origin': 'top left' }),
-    enter: setVelocity({ opacity: 1, scale: [1, 0.2] }),
+    enter: setVelocity({ opacity: [1, 0], scale: [1, 0.5] }),
     beforeLeave: setup({ 'transform-origin': 'top left' }),
-    leave: setVelocity({ opacity: [0, 1], scale: 0.2 }),
+    leave: setVelocity({ opacity: [0, 1], scale: 0.5 }),
   },
   'explode-left': () => ({
     beforeEnter: { 'transform-origin': 'top right' },
