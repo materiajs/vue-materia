@@ -23,15 +23,16 @@
         </mat-list>
       </mat-sidebar>
       <div class="body">
-        <mat-menu v-model="menu">
-          <mat-container
-            slot="trigger"
-            cursor="pointer"
-          >
-            Triggerrrr
-          </mat-container>
-          <mat-button>Test</mat-button>
-        </mat-menu>
+        <mat-color-select v-model="color" />
+<!--        <mat-menu v-model="menu">-->
+<!--          <mat-container-->
+<!--            slot="trigger"-->
+<!--            cursor="pointer"-->
+<!--          >-->
+<!--            Triggerrrr-->
+<!--          </mat-container>-->
+<!--          <mat-button>Test</mat-button>-->
+<!--        </mat-menu>-->
       </div>
     </div>
   </div>
@@ -48,6 +49,8 @@ export default class App extends Vue {
   modal = false;
 
   menu = false;
+
+  color = null;
 
   sidebar = false;
 

@@ -6,12 +6,14 @@ import MatSetColor from './directives/set-color';
 import MatRipple from './directives/ripple';
 
 import * as atoms from './components/atoms/index';
+import * as molecules from './components/molecules/index';
 // import * as blocks from './components/blocks/index';
 // import * as composites from './components/composites/index';
 // import * as structures from './components/structures/index';
 
 const components = {
   ...atoms,
+  ...molecules,
   // ...blocks,
   // ...composites,
   // ...structures,
