@@ -12,6 +12,7 @@ export { default as MatContainer } from './MatContainer.vue';
 
 // Input
 export { default as MatInput } from './MatInput.vue';
+export { default as MatCheckbox } from './MatCheckbox.vue';
 
 // Toolbar
 export { default as MatToolbar } from './MatToolbar.vue';

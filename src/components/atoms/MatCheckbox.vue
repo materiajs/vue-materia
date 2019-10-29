@@ -50,7 +50,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  @import "../../../styles/main";
+  @import "../../styles/main";
 
   $frame-size: 20px;
   .mat-checkbox {

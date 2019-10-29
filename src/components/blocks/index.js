@@ -1,7 +1,6 @@
 export { default as MatFa } from './icon/Fa.vue';
 export { default as MatChip } from './chip/Chip.vue';
 export { default as MatTransition } from './transition/TransitionComponent.vue';
-export { default as MatCheckbox } from './checkbox/Checkbox.vue';
 
 // Block
 export { default as MatBlock } from './block/Block.vue';
