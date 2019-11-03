@@ -26,16 +26,6 @@ export default class Toolbar extends MatThemeComponent {
   @Prop({ type: String })
   zIndex;
 
-  @Prop({
-    // xs
-    // sm
-    // md
-    // lg
-    // xl
-    type: String,
-  })
-  size;
-
   // eslint-disable-next-line class-methods-use-this
   render(createElement, { props, listeners, slots }) {
     return createElement(

@@ -35,7 +35,9 @@
           <div class="header">
             <slot name="header" />
           </div>
-          <slot />
+          <slot>
+            Menu body
+          </slot>
         </div>
       </div>
     </transition>

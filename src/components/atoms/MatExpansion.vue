@@ -19,6 +19,7 @@ export default class MatExpansion extends Vue {
     const sectionWidth = element.scrollWidth;
     Velocity(element, {
       width: 0,
+      'min-width': 0,
     }, {
       duration: 400,
       easing: [700, 50],
@@ -30,6 +31,7 @@ export default class MatExpansion extends Vue {
     element.style.width = '0';
     Velocity(element, {
       width: `${sectionWidth}px`,
+      'min-width': `${sectionWidth}px`,
     }, {
       duration: 340,
       easing: [700, 50],

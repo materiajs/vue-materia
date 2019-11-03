@@ -20,7 +20,6 @@ try {
         component.componentDesc.extends
         && component.componentDesc.extends.includes('MatThemeComponent')
       ) {
-        console.log('yes');
         component.props = [
           ...themeComponent.props,
           ...component.props,

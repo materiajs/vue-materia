@@ -52,5 +52,15 @@ export default class MatThemeComponent extends Vue {
 
   @Prop({ type: String })
   width;
+
+  @Prop({
+    // xs
+    // sm
+    // md
+    // lg
+    // xl
+    type: String,
+  })
+  size;
 }
 </script>

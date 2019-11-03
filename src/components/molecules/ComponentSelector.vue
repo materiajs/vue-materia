@@ -1,20 +1,22 @@
 <template>
-  <mat-menu v-model="menu">
-    <mat-button slot="trigger">
-      Select component
-    </mat-button>
-    <mat-container>
-      <mat-list>
-        <mat-list-item
-          v-for="component in componentOptions"
-          :key="component.tag"
-          @click="() => $emit('input', component)"
-        >
-          {{ component.componentDesc.displayName[0] }}
-        </mat-list-item>
-      </mat-list>
-    </mat-container>
-  </mat-menu>
+  <div>
+    <mat-menu v-model="menu">
+      <mat-button slot="trigger">
+        Select component
+      </mat-button>
+      <mat-container>
+        <mat-list>
+          <mat-list-item
+            v-for="component in componentOptions"
+            :key="component.tag"
+            @click="() => $emit('input', component)"
+          >
+            {{ component.componentDesc.displayName[0] }}
+          </mat-list-item>
+        </mat-list>
+      </mat-container>
+    </mat-menu>
+  </div>
 </template>
 
 <script type="text/tsx">

@@ -19,6 +19,7 @@ import MatThemeComponent from './MatThemeComponent.vue';
 // @displayName Button
 // @tag mat-button
 // @group Buttons
+// @extends MatThemeComponent
 // Button component
 export default class MatButton extends MatThemeComponent {
   @Prop({ default: 'primary', type: String })

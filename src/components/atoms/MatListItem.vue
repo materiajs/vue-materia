@@ -15,7 +15,10 @@
 
 <script>
 import t from 'vue-types';
-
+// @name MatListItem
+// @displayName List item
+// @tag mat-list-item
+// List item
 export default {
   name: 'ListItem',
   props: {

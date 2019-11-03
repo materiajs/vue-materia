@@ -24,34 +24,75 @@
               padding="15px"
             >
               <component-selector @input="onSelectComponent" />
-              <div
-                class="component"
-                v-for="(component, idx) in components"
+              <br>
+              <component-display
+                v-for="(component, idx) in rootComponents"
                 :key="idx"
-                @click="() => onClickComponent(component)"
+                :component="component"
+                :selected-component="selectedComponent"
+                :all-components="components"
+                @componentClicked="onClickComponent"
               >
-                <component
-                  :is="component.componentDesc.tag[0]"
-                  v-bind="component.propValues"
-                >
-                  {{ component.componentDesc.tag[0] }}
-                </component>
-              </div>
+              </component-display>
             </mat-container>
           </mat-container>
-          <mat-expansion :value="selectedComponent !== null">
+          <mat-expansion :value="editComponentSidebar">
            <mat-container
-             color="blue-grey-3"
-             width="700px"
+             color="support-4"
+             width="420px"
              height="100%"
+             padding="15px"
            >
              <mat-toolbar
                v-if="selectedComponent"
                color="support-2"
              >
                {{ selectedComponent.componentDesc.displayName[0]}}
-               <mat-button @click="() => selectedComponent = null">Close</mat-button>
+               <mat-button @click="closeEditComponent">Close</mat-button>
              </mat-toolbar>
+             <br>
+             <template v-if="selectedComponentParent">
+               <mat-toolbar
+                 size="xs"
+                 color="support-3">
+                 Parent
+               </mat-toolbar>
+              <mat-list>
+                <mat-list-item
+                  padding="15px"
+                  @click="selectedComponent = { ...selectedComponentParent }"
+                >
+                  {{ selectedComponentParent.componentDesc.displayName[0] }}
+                </mat-list-item>
+              </mat-list>
+             </template>
+             <mat-toolbar
+               size="xs"
+               color="support-3">
+               Children
+             </mat-toolbar>
+             <br>
+             <component-selector @input="component =>
+             onSelectComponent({ ...component, parent: this.selectedComponent.id })">
+             </component-selector>
+             <div>
+               <mat-list>
+                 <mat-list-item
+                   v-for="child in getSelectedComponentChildren"
+                   :key="child.id"
+                   @click="selectedComponent = { ...child }"
+                 >
+                   {{ child.componentDesc.displayName[0] }}
+                 </mat-list-item>
+               </mat-list>
+             </div>
+             <br>
+             <mat-toolbar
+               size="xs"
+               color="support-3">
+               Props
+             </mat-toolbar>
+             <br>
              <mat-list v-if="selectedComponent">
                <template v-for="(prop, idx) in selectedComponent.props">
                  <mat-color-select
@@ -99,9 +140,11 @@ import uuid from 'uuid/v4';
 import ComponentTree from '@/ComponentTree.vue';
 import ComponentSelector from '@/components/molecules/ComponentSelector.vue';
 import Sidebar from '@/Sidebar.vue';
+import ComponentDisplay from '@/components/molecules/ComponentDisplay.vue';
 
 @Component({
   components: {
+    ComponentDisplay,
     Sidebar,
     ComponentTree,
     ComponentSelector,
@@ -111,6 +154,8 @@ export default class App extends Vue {
   modal = false;
 
   sidebar = true;
+
+  editComponentSidebar = false;
 
   shadow = true;
 
@@ -129,19 +174,46 @@ export default class App extends Vue {
     this.$forceUpdate();
   }
 
+  get rootComponents() {
+    return this.components
+      .filter(component => !component.parent);
+  }
+
+  get getSelectedComponentChildren() {
+    if (!this.selectedComponent) return [];
+    return this.components
+      .filter(component => component.parent === this.selectedComponent.id);
+  }
+
+  get selectedComponentParent() {
+    if (!this.selectedComponent) return null;
+    return this.components
+      .find(component => component.id === this.selectedComponent.parent);
+  }
+
   setModal() {
     this.modal = true;
     this.$forceUpdate();
   }
 
-  onClickComponent(component) {
-    console.log(component);
-    this.selectedComponent = component;
+  onSelectComponent(component) {
+    const id = uuid();
+    this.components.push({
+      ...component,
+      id,
+    });
   }
 
-  onSelectComponent(component) {
-    component.id = uuid();
-    this.components.push(component);
+  onClickComponent(component) {
+    this.selectedComponent = component;
+    this.editComponentSidebar = true;
+  }
+
+  closeEditComponent() {
+    this.editComponentSidebar = false;
+    setTimeout(() => {
+      this.selectedComponent = null;
+    }, 200);
   }
 
   updatePropMenus(propName, value) {
