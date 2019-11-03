@@ -115,7 +115,7 @@ export default class MatModal extends MatThemeComponent {
   }
 
   .fade-enter-active, .fade-leave-active {
-    transition: all .4s;
+    transition: all .2s;
   }
   .fade-enter,
   .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {

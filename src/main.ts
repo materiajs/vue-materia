@@ -6,10 +6,11 @@ import MatSetColor from './directives/set-color';
 import MatRipple from './directives/ripple';
 import VueMateria from './index';
 
-Vue.use(VueMateria);
+Vue.use(VueMateria, {
+  theme: 'palette2',
+});
 
 Vue.config.productionTip = false;
-theme.setTheme(theme.themes.palette1);
 
 Vue.directive('mat-background', MatBackground);
 Vue.directive('mat-set-color', MatSetColor);

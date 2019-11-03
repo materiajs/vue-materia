@@ -7,13 +7,30 @@ const { parser } = vuese;
 try {
   glob(`${__dirname}/components/atoms/**/*.vue`, {}, (err, files) => {
     const parserRes = {};
-    files.forEach((path) => {
+    const parseFromPath = (path) => {
       const source = fs.readFileSync(path, 'utf-8');
-      const component = parser(source);
+      return parser(source);
+    };
+    const themePath = `${__dirname}/components/atoms/MatThemeComponent.vue`;
+    const themeComponent = parseFromPath(themePath);
+    files.forEach((path) => {
+      const component = parseFromPath(path);
       const propertyName = path.split('/').pop().replace('.vue', '');
+      if (
+        component.componentDesc.extends
+        && component.componentDesc.extends.includes('MatThemeComponent')
+      ) {
+        console.log('yes');
+        component.props = [
+          ...themeComponent.props,
+          ...component.props,
+        ];
+        console.log(component.props);
+      }
       parserRes[propertyName] = component;
     });
     const path = './dist/vuese.json';
+    // console.log(parserRes);
     fs.writeFileSync(path, JSON.stringify(parserRes, null, 2));
   });
 } catch (e) {

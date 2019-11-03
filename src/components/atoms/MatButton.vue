@@ -24,12 +24,6 @@ export default class MatButton extends MatThemeComponent {
   @Prop({ default: 'primary', type: String })
   color;
 
-  @Prop({ type: String })
-  gradient;
-
-  @Prop({ type: String })
-  gradientColor;
-
   @Prop({ type: Boolean })
   shadow;
 
@@ -49,8 +43,6 @@ export default class MatButton extends MatThemeComponent {
   @import "../../styles/main";
   .mat-button {
     align-items: center;
-    background: var(--color);
-    color: var(--text-color);
     border-radius: 5px;
     border: none;
     cursor: pointer;
@@ -81,9 +73,23 @@ export default class MatButton extends MatThemeComponent {
     }
     &.outline {
       background: none !important;
-      color: var(--color) !important;
       border: 1px solid var(--color) !important;
       box-shadow: none;
+      color: inherit !important;
+    }
+    &.active, &:hover, &:focus {
+      &:after {
+        content: "";
+        border-radius: 5px;
+        background: rgba(0, 0, 0, 0.1);
+        outline: none;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        position: absolute;
+        z-index: 5;
+        left: 0;
+      }
     }
   }
 </style>

@@ -18,6 +18,8 @@ const setVelocity = styles => (el, done) => {
 };
 
 export default {
+  setup,
+  setVelocity,
   'fade-in-out': () => ({
     beforeEnter: { opacity: 0 },
     enter: { opacity: 1 },
@@ -29,12 +31,28 @@ export default {
     beforeLeave: setup({ 'transform-origin': 'top left' }),
     leave: setVelocity({ opacity: [0, 1], scale: 0.5 }),
   },
+  down: {
+    beforeEnter: setup({ 'transform-origin': 'top' }),
+    enter: setVelocity({ opacity: [1, 0], scaleY: [1, 0.5] }),
+    beforeLeave: setup({ 'transform-origin': 'top' }),
+    leave: setVelocity({ opacity: [0, 1], scaleY: 0.5 }),
+  },
+  left: {
+    beforeEnter: setup({ width: '0' }),
+    enter: setVelocity({ opacity: [1, 0], scaleY: [1, 0.5] }),
+    beforeLeave: setup({ 'transform-origin': 'top' }),
+    leave: setVelocity({ opacity: [0, 1], scaleY: 0.5 }),
+  },
   'explode-left': () => ({
     beforeEnter: { 'transform-origin': 'top right' },
     enter: { opacity: 1, scale: [1, 0.2] },
     beforeLeave: { 'transform-origin': 'top right' },
     leave: { opacity: [0, 1], scale: 0.2 },
   }),
+  getWithElement(el, key) {
+    console.log(el);
+    return this[key];
+  },
   // 'up-down': () => ({
   //   beforeEnter: { opacity: 0 },
   //   enter: { opacity: 1, translateY: [0, '25px'] },

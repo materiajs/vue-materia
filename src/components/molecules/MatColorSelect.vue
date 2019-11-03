@@ -2,25 +2,27 @@
   <mat-menu v-model="menu">
     <template slot="trigger">
       <slot name="trigger">
-        <div
-          v-if="selectedColor"
-          class="color-with-label"
-          :style="{ cursor: 'pointer' }"
-        >
+        <mat-button :outline="true">
           <div
-            :style="{background: selectedColor.value}"
-            class="color"
-          />
-          <span class="color-label">
+            v-if="selectedColor"
+            class="color-with-label"
+            :style="{ cursor: 'pointer' }"
+          >
+            <div
+              :style="{background: selectedColor.value}"
+              class="color"
+            />
+            <span class="color-label">
           {{ getSentenceCase(selectedColor.name) }}
         </span>
-        </div>
-        <div
-          v-else
-          class="color-with-label"
-        >
-          Choose color
-        </div>
+          </div>
+          <div
+            v-else
+            class="color-with-label"
+          >
+            Choose color
+          </div>
+        </mat-button>
       </slot>
     </template>
     <mat-list>
@@ -85,7 +87,8 @@ export default class MatColorSelect extends Vue {
   .color-with-label {
     display: flex;
     align-items: center;
-    min-height: 45px;
+    height: 20px;
+    line-height: 20px;
     .color {
       width: 20px;
       height: 20px;

@@ -1,46 +1,30 @@
-<template>
-  <div :class="[ 'mat-card']" :style="getStyle">
+<template functional>
+  <div :class="[ 'mat-card']" :style="props.initTheme(props)">
     <slot />
   </div>
 </template>
 
-<script>
+<script type="text/tsx">
+import { Component, Prop } from 'vue-property-decorator';
 import t from 'vue-types';
+import MatThemeComponent from './MatThemeComponent.vue';
 import { defaultAccentColor } from '../../mixins/themeable';
 
-// @name MatCard
-// @displayName Card
-// @tag mat-card
-// Card component
-export default {
-  name: 'Card',
+@Component({
   props: {
-    darkColor: defaultAccentColor,
     hideOnMq: t.string,
     overflow: t.string.def('initial'),
     padding: t.string.def('15px'),
   },
-  computed: {
-    // mqHideList() {
-    //   const mqs = Object.keys(this.$mqAvailableBreakpoints);
-    //   const i = mqs.findIndex(mq => mq === this.hideOnMq);
-    //   if (i > -1) {
-    //     return mqs.slice(0, i + 1);
-    //   }
-    //   return [];
-    // },
-    // hideOnMqSet() {
-    //   return this.mqHideList.includes(this.$mq);
-    // },
-    getStyle() {
-      return {
-        background: this.background,
-        padding: this.padding,
-        overflow: this.overflow,
-      };
-    },
-  },
-};
+})
+// @name MatCard
+// @displayName Card
+// @tag mat-card
+// Card component
+export default class MatCard extends MatThemeComponent {
+  @Prop({ default: 'default', type: String })
+  color;
+}
 </script>
 
 <style scoped lang="scss">

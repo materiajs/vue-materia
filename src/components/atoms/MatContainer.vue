@@ -1,26 +1,33 @@
 <template functional>
   <div
     class="mat-container"
-    :style="{
-    padding: props.padding,
-    cursor: props.cursor,
-  }"
+    :style="props.initTheme(props)"
   >
     <slot />
   </div>
 </template>
 
 <script type="text/tsx">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop } from 'vue-property-decorator';
+import MatThemeComponent from './MatThemeComponent.vue';
 
 @Component({})
 // @name MatContainer
 // @displayName Container
 // @tag mat-container
 // Container component
-export default class MatContainer extends Vue {
-  @Prop({ default: '15px', type: String })
+export default class MatContainer extends MatThemeComponent {
+  @Prop({ type: String })
   padding;
+
+  @Prop({ default: 'auto', type: String })
+  margin;
+
+  @Prop({ default: 'block', type: String })
+  display;
+
+  @Prop({ type: String })
+  maxWidth;
 
   @Prop({ default: 'initial', type: String })
   cursor;

@@ -2,21 +2,29 @@
   <div
     class="mat-list"
     :class="{ bordered: props.bordered }"
-    v-mat-background:[props.gradient]="[props.color, props.gradientColor]"
+    :style="props.initTheme(props)"
   >
     <slot />
   </div>
 </template>
 
-<script>
-import t from 'vue-types';
+<script type="text/tsx">
+import { Component, Prop } from 'vue-property-decorator';
+import MatThemeComponent from './MatThemeComponent.vue';
 
-export default {
-  name: 'List',
+@Component({
   props: {
-    bordered: t.bool.def(false),
+    bordered: {
+      type: Boolean,
+      default: false,
+    },
   },
-};
+})
+// @name MatList
+// @displayName List
+// @tag mat-list
+// List
+export default class MatList extends MatThemeComponent {}
 </script>
 
 <style scoped lang="scss">

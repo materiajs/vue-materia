@@ -37,6 +37,7 @@ export default {
     theme.setTheme(theme.palette);
     // Overwrite
     if (options && options.theme) {
+      console.log('overwrite', theme.themes[options.theme]);
       theme.setTheme(theme.themes[options.theme]);
     }
     Vue.use(VueMq, {

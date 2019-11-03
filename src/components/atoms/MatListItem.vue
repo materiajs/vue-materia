@@ -4,6 +4,7 @@
     :class="{ active: props.active }"
     class="mat-list-item"
     v-mat-ripple
+    tabindex="0"
   >
     <a v-if="props.href" :href="props.href">
       <slot></slot>
@@ -38,8 +39,9 @@ export default {
       display: block;
       text-decoration: none;
     }
-    &.active, &:hover {
+    &.active, &:hover, &:focus {
       background: rgba(0,0,0,0.05);
+      outline: none;
     }
   }
 </style>

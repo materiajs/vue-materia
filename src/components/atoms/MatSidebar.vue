@@ -3,40 +3,62 @@
     class="mat-sidebar mat-scrollbar-hidden"
     :class="{ 'is-mobile': isMobile, open: value }"
   >
-    <transition
-      @beforeEnter="beforeEnter"
-      @afterEnter="afterEnter"
-      @beforeLeave="beforeLeave"
-      @enter="enter"
-      @leave="leave"
-      @afterLeave="afterLeave"
-    >
+    <template v-if="!isMobile">
       <div
-        v-if="value"
-        class="mat-sidebar-inner"
+        :style="this.initTheme(this.$props)"
       >
-        <div class="mat-sidebar-inner-block">
-          <slot :overlay="isOverlay" />
+        <transition
+          @beforeEnter="beforeEnter"
+          @afterEnter="afterEnter"
+          @beforeLeave="beforeLeave"
+          @enter="enter"
+          @leave="leave"
+          @afterLeave="afterLeave"
+        >
+          <div
+            v-if="value"
+            class="mat-sidebar-inner"
+          >
+            <div class="mat-sidebar-inner-block">
+              <slot />
+            </div>
+          </div>
+        </transition>
+      </div>
+      <slot name="content" />
+    </template>
+    <drawer-layout v-else>
+      <div class="drawer" slot="drawer">
+        <div
+          class="mat-sidebar-inner"
+        >
+          <div class="mat-sidebar-inner-block">
+            <slot />
+          </div>
         </div>
       </div>
-    </transition>
-    <transition name="fade">
-      <div
-        v-if="isOverlay && value"
-        @click="close"
-        class="close-box">
+      <div class="content" slot="content">
+        <slot name="content"></slot>
       </div>
-    </transition>
+    </drawer-layout>
   </div>
 </template>
 
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import {
+  Component, Vue, Prop, Watch,
+} from 'vue-property-decorator';
 import Velocity from 'velocity-animate';
+import { DrawerLayout } from 'vue-drawer-layout';
+import MatThemeComponent from './MatThemeComponent.vue';
 
-@Component({})
-export default class MatSidebar extends Vue {
+@Component({
+  components: {
+    DrawerLayout,
+  },
+})
+export default class MatSidebar extends MatThemeComponent {
   @Prop({
     type: String,
     default: 'default',
@@ -101,7 +123,6 @@ export default class MatSidebar extends Vue {
     return (this.overlay || this.isMobile);
   }
 
-
   beforeEnter(el) {
     const styles = this.styles.beforeEnter;
     Object.keys(styles)
@@ -113,7 +134,7 @@ export default class MatSidebar extends Vue {
   enter(el, done) {
     Velocity(el, this.styles.enter, {
       complete: done,
-      duration: 400,
+      duration: 200,
       easing: 'easeInOutQuart',
     });
   }
@@ -133,7 +154,7 @@ export default class MatSidebar extends Vue {
   leave(el, done) {
     Velocity(el, this.styles.leave, {
       complete: done,
-      duration: 400,
+      duration: 200,
       easing: 'easeInOutQuart',
     });
   }
@@ -148,19 +169,21 @@ export default class MatSidebar extends Vue {
 
 <style scoped lang="scss">
   .mat-sidebar {
-    .close-box {
-      position: fixed;
-      width: 100%;
-      background: rgba(0,0,0,0.3);
-      top: 0;
-      bottom: 0;
-      z-index: -1;
-    }
+    width: 100% !important;
     min-height: 100%;
     box-sizing: border-box;
+    display: flex;
     &-inner {
-      &-block {
-        width: 300px;
+      position: relative;
+      width: 300px;
+      .drag-button {
+        position: absolute;
+        left: 100%;
+        color: black;
+        padding: 15px;
+        background: grey;
+        touch-action: none;
+        user-select: none;
       }
     }
     .actions {

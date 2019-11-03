@@ -10,6 +10,9 @@ export { default as MatCard } from './MatCard.vue';
 // Container
 export { default as MatContainer } from './MatContainer.vue';
 
+// Expansion
+export { default as MatExpansion } from './MatExpansion.vue';
+
 // Input
 export { default as MatInput } from './MatInput.vue';
 export { default as MatCheckbox } from './MatCheckbox.vue';

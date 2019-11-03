@@ -2,15 +2,14 @@
   <div
     class="mat-menu-wrapper"
     :class="{ root }"
-    :style="{ top: `${top}px`, left: `${left}px`}"
+    :style="{ top: `${top}px`, left: `${left}px` }"
   >
     <div
+      class="mat-menu-trigger"
       @click="$emit('input', true)"
     >
       <slot name="trigger">
-        <div class="mat-menu-trigger">
-          Menu
-        </div>
+        Menu
       </slot>
     </div>
     <transition name="fade">
@@ -20,7 +19,7 @@
         class="overlay"></div>
     </transition>
     <transition
-      v-on="transitions.explode"
+      v-on="transitions.down"
     >
       <div
         v-if="value"
@@ -30,8 +29,9 @@
       >
         <div
           v-on-clickaway="onClickOutside"
-          class="mat-menu-body mat-scrollbar-hidden
-          mat-card-light mat-box-shadow-heavy">
+          class="mat-menu-body mat-scrollbar-hidden mat-card-light mat-box-shadow-heavy"
+          :style="this.initTheme(this.$props)"
+        >
           <div class="header">
             <slot name="header" />
           </div>
@@ -42,43 +42,55 @@
   </div>
 </template>
 
-<script>
+<script type="text/tsx">
 import { mixin as clickaway } from 'vue-clickaway';
 import t from 'vue-types';
+import { Component, Prop } from 'vue-property-decorator';
 import sizeable from '../../mixins/sizeable';
 import mediaQuery from '../../mixins/media-query';
 import transitions from '@/utils/transitions';
+import MatThemeComponent from './MatThemeComponent.vue';
 
-export default {
-  name: 'mat-menu',
-  data: () => ({
-    top: 0,
-    left: 0,
-    transitions,
-    originalParent: null,
-  }),
+@Component({
   mixins: [
     clickaway,
     sizeable,
     mediaQuery,
   ],
   props: {
-    color: t.string.def('default'),
     position: t.oneOf(['bottom-left', 'bottom-right']).def('bottom-left'),
     value: t.bool.def(false),
     root: t.bool.def(false),
   },
-  computed: {
-    bottomLeft() {
-      return this.position === 'bottom-left';
-    },
-    getTransitionName() {
-      if (this.isMobile) {
-        return 'slide-up-down';
-      }
-      return this.bottomLeft ? 'explode-left' : 'explode';
-    },
-  },
+})
+// @name MatMenu
+// @displayName Menu
+// @tag mat-menu
+// @group Menus
+// Menu component
+export default class MatMenu extends MatThemeComponent {
+  @Prop({ default: 'default', type: String })
+  color;
+
+  top = 0;
+
+  left = 0;
+
+  transitions = transitions;
+
+  originalParent = null;
+
+  get bottomLeft() {
+    return this.position === 'bottom-left';
+  }
+
+  get getTransitionName() {
+    if (this.isMobile) {
+      return 'slide-up-down';
+    }
+    return this.bottomLeft ? 'explode-left' : 'explode';
+  }
+
   mounted() {
     if (this.root && this.$el && this.$el.parentNode) {
       this.originalParent = this.$el.parentNode;
@@ -86,22 +98,21 @@ export default {
       this.originalParent.removeChild(this.$el);
       document.getElementById('app').appendChild(this.$el);
     }
-  },
+  }
 
-  methods: {
-    onClickOutside() {
-      this.$emit('input', false);
-    },
-    onClickParent(e) {
-      this.top = e.pageY + 15;
-      if (this.bottomLeft) {
-        this.left = Math.max(0, e.pageX - this.$refs['menu-main'].clientWidth + 15);
-      } else {
-        this.left = Math.max(0, e.pageX + this.$refs['menu-main'].clientWidth - 15);
-      }
-    },
-  },
-};
+  onClickOutside() {
+    this.$emit('input', false);
+  }
+
+  onClickParent(e) {
+    this.top = e.pageY + 15;
+    if (this.bottomLeft) {
+      this.left = Math.max(0, e.pageX - this.$refs['menu-main'].clientWidth + 15);
+    } else {
+      this.left = Math.max(0, e.pageX + this.$refs['menu-main'].clientWidth - 15);
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -135,7 +146,6 @@ export default {
       &-body {
         border-radius: 5px;
         max-height: 50vh;
-        background: var(--default);
       }
 
       &.bottom-right {
