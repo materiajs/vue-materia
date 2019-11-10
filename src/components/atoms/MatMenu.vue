@@ -3,6 +3,7 @@
     class="mat-menu-wrapper"
     :class="{ root }"
     :style="{ top: `${top}px`, left: `${left}px` }"
+    ref="mat-menu-wrapper"
   >
     <div
       class="mat-menu-trigger"
@@ -14,7 +15,7 @@
     </div>
     <transition name="fade">
       <div
-        v-if="(isMobile || root) && value"
+        v-if="value"
         @click.stop="onClickOutside"
         class="overlay"></div>
     </transition>
@@ -47,7 +48,7 @@
 <script type="text/tsx">
 import { mixin as clickaway } from 'vue-clickaway';
 import t from 'vue-types';
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Prop, Watch } from 'vue-property-decorator';
 import sizeable from '../../mixins/sizeable';
 import mediaQuery from '../../mixins/media-query';
 import transitions from '@/utils/transitions';
@@ -114,21 +115,38 @@ export default class MatMenu extends MatThemeComponent {
       this.left = Math.max(0, e.pageX + this.$refs['menu-main'].clientWidth - 15);
     }
   }
+
+  @Watch('value')
+  onValueChange(value) {
+    const {
+      bottom,
+      height,
+      left,
+      right,
+      top,
+      width,
+      x,
+      y,
+    } = this.$refs['mat-menu-wrapper'].getBoundingClientRect();
+    console.log(bottom, height, left, right, top, width, x, y);
+    if (value) {
+      this.$nextTick(() => {
+        this.$refs['menu-main'].style.left = `${left}px`;
+        console.dir(this.$refs['menu-main']);
+      });
+    }
+  }
 }
 </script>
 
 <style scoped lang="scss">
   @import "../../styles/main";
   .mat-menu-wrapper {
-    &.root {
-      position: fixed;
-      z-index: 30;
-    }
     .overlay {
       position: fixed;
       height: 100%;
       width: 100%;
-      background: rgba(0,0,0,0.3);
+      background: rgba(0,0,0,0.1);
       top: 0;
       z-index: 15;
       left: 0;
@@ -138,7 +156,7 @@ export default class MatMenu extends MatThemeComponent {
     }
     .mat-menu {
       min-width: 280px;
-      position: absolute;
+      position: fixed;
       z-index: 100;
       .header {
         position: sticky;

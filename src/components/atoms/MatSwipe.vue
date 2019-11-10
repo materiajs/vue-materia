@@ -1,26 +1,29 @@
+<template>
+  <div class="mat-swipe mat-scrollbar-hidden">
+    <slot />
+  </div>
+</template>
+
 <script>
 import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
+import { Component, Watch } from 'vue-property-decorator';
 import MatThemeComponent from './MatThemeComponent.vue';
 
 @Component({
-  functional: true,
   props: {
     gradient: String,
+    value: Number,
   },
 })
 export default class MatSwipe extends MatThemeComponent {
-  // eslint-disable-next-line
-  render(createElement, { props, listeners, slots }) {
-    return createElement(
-      'div',
-      {
-        class: [
-          'mat-swipe mat-scrollbar-hidden',
-        ],
-      },
-      slots().default,
-    );
+  @Watch('value', { immediate: true })
+  onValue(value) {
+    this.$nextTick(() => {
+      if (this.$slots.default) {
+        this.$slots.default[value].elm.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      }
+    });
+    // [value].fnContext.$el.scrollIntoView();
   }
 }
 </script>
@@ -28,7 +31,6 @@ export default class MatSwipe extends MatThemeComponent {
 <style scoped lang="scss">
   @import "../../styles/main";
   .mat-swipe {
-    background: green;
     scroll-snap-points-y: repeat(300px);
     font-family: sans-serif;
     -ms-scroll-snap-type: x mandatory;
@@ -37,6 +39,5 @@ export default class MatSwipe extends MatThemeComponent {
     overflow-x: scroll;
     white-space: nowrap;
     display: flex;
-    align-items: center;
   }
 </style>

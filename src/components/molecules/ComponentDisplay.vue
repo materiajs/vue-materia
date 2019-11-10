@@ -52,8 +52,15 @@ export default class ComponentDisplay extends Vue {
   .component {
     transition: all 0.1s ease-in-out;
     &.selected {
-      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
       transform: scale(1.005);
+      position: relative;
+      z-index: 1;
+      /deep/  >*{
+        box-shadow: 0 10px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
+      }
+    }
+    /deep/  >*{
+      transition: all 0.1s ease-in-out;
     }
   }
 </style>

@@ -38,7 +38,9 @@ export default class MatExpansion extends Vue {
     });
   }
 
-  @Watch('value')
+  @Watch('value', {
+    immediate: true,
+  })
   onValue(value) {
     if (value) {
       this.$nextTick(() => this.expandSection(this.$el));

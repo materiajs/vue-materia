@@ -6,130 +6,166 @@
       z-index="5"
       color="blue-grey-2"
     >
-    <mat-nav-link @click="() => sidebar = !sidebar">
+      <mat-nav-link @click="() => sidebar = !sidebar">
         Sidebar
       </mat-nav-link>
     </mat-toolbar>
     <div class="main">
-      <mat-sidebar v-model="sidebar" color="blue-grey-3">
-        <Sidebar />
-        <template slot="content">
+      <mat-expansion v-model="sidebar">
+        <mat-container
+          color="support-4"
+          width="300px"
+          height="100%"
+        >
+          <Sidebar />
+        </mat-container>
+      </mat-expansion>
+
+      <mat-container
+        height="100%"
+        width="100%"
+        color="blue-grey-5"
+      >
+        <div @click="closeEditComponent()">
           <mat-container
-            height="100%"
-            width="100%"
-            color="blue-grey-5"
+            max-width="800px"
+            padding="15px"
           >
-            <mat-container
-              max-width="800px"
-              padding="15px"
+            <component-selector @input="onSelectComponent" />
+            <br>
+            <component-display
+              v-for="(component, idx) in rootComponents"
+              :key="idx"
+              :component="component"
+              :selected-component="selectedComponent"
+              :all-components="components"
+              @componentClicked="onClickComponent"
             >
-              <component-selector @input="onSelectComponent" />
-              <br>
-              <component-display
-                v-for="(component, idx) in rootComponents"
-                :key="idx"
-                :component="component"
-                :selected-component="selectedComponent"
-                :all-components="components"
-                @componentClicked="onClickComponent"
-              >
-              </component-display>
-            </mat-container>
+            </component-display>
           </mat-container>
-          <mat-expansion :value="editComponentSidebar">
-           <mat-container
-             color="support-4"
-             width="420px"
-             height="100%"
-             padding="15px"
-           >
-             <mat-toolbar
-               v-if="selectedComponent"
-               color="support-2"
-             >
-               {{ selectedComponent.componentDesc.displayName[0]}}
-               <mat-button @click="closeEditComponent">Close</mat-button>
-             </mat-toolbar>
-             <br>
-             <template v-if="selectedComponentParent">
-               <mat-toolbar
-                 size="xs"
-                 color="support-3">
-                 Parent
-               </mat-toolbar>
-              <mat-list>
-                <mat-list-item
-                  padding="15px"
-                  @click="selectedComponent = { ...selectedComponentParent }"
-                >
-                  {{ selectedComponentParent.componentDesc.displayName[0] }}
-                </mat-list-item>
-              </mat-list>
-             </template>
-             <mat-toolbar
-               size="xs"
-               color="support-3">
-               Children
-             </mat-toolbar>
-             <br>
-             <component-selector @input="component =>
+        </div>
+      </mat-container>
+      <mat-expansion :value="editComponentSidebar">
+        <mat-container
+          color="support-4"
+          width="420px"
+          height="100%"
+          padding="15px"
+        >
+          <mat-toolbar
+            v-if="selectedComponent"
+            color="support-2"
+          >
+            {{ selectedComponent.componentDesc.displayName[0]}}
+            <mat-button @click="closeEditComponent">Close</mat-button>
+          </mat-toolbar>
+          <br>
+          <template v-if="selectedComponentParent">
+            <mat-toolbar
+              size="xs"
+              color="support-3">
+              Parent
+            </mat-toolbar>
+            <mat-list>
+              <mat-list-item
+                padding="15px"
+                @click="selectedComponent = { ...selectedComponentParent }"
+              >
+                {{ selectedComponentParent.componentDesc.displayName[0] }}
+              </mat-list-item>
+            </mat-list>
+          </template>
+          <mat-button @click="() => swipe = 0">
+            0
+          </mat-button>
+          <mat-button @click="() => swipe = 1">
+            One
+          </mat-button>
+          <mat-swipe :value="swipe">
+            <mat-swipe-item>
+              <mat-toolbar
+                size="xs"
+                color="support-3">
+                Children
+              </mat-toolbar>
+              <br>
+              <component-selector @input="component =>
              onSelectComponent({ ...component, parent: this.selectedComponent.id })">
-             </component-selector>
-             <div>
-               <mat-list>
-                 <mat-list-item
-                   v-for="child in getSelectedComponentChildren"
-                   :key="child.id"
-                   @click="selectedComponent = { ...child }"
-                 >
-                   {{ child.componentDesc.displayName[0] }}
-                 </mat-list-item>
-               </mat-list>
-             </div>
-             <br>
-             <mat-toolbar
-               size="xs"
-               color="support-3">
-               Props
-             </mat-toolbar>
-             <br>
-             <mat-list v-if="selectedComponent">
-               <template v-for="(prop, idx) in selectedComponent.props">
-                 <mat-color-select
-                   v-if="prop.name === 'color'"
-                   :key="`${selectedComponent.name}-${prop.name}-${idx}-color-select`"
-                   @input="color => updateSelectedComponentPropValues('color', color.name)"
-                 />
-                 <mat-menu
-                   v-else-if="prop.typeDesc"
-                   :key="`${selectedComponent.name}-${prop.name}-${idx}-menu`"
-                   :value="propMenus[prop.name]"
-                   @input="val => updatePropMenus(prop.name, val)"
-                 >
-                   <div slot="trigger">
-                     <mat-list-item
-                       :key="`${selectedComponent.name}-${prop.name}-${idx}-list-item`"
-                       @click="() => updatePropMenus(prop.name, true)"
-                     >
-                       {{ prop.name }}
-                     </mat-list-item>
-                   </div>
-                   <mat-list>
-                     <mat-list-item
-                       v-for="option in prop.typeDesc"
-                       :key="option"
-                       @click="() => updateSelectedComponentPropValues(prop.name, option)"
-                     >
-                       {{ option }}
-                     </mat-list-item>
-                   </mat-list>
-                 </mat-menu>
-               </template>
-             </mat-list>
-           </mat-container>
-          </mat-expansion>
-        </template>
-      </mat-sidebar>
+              </component-selector>
+              <div>
+                <mat-list>
+                  <mat-list-item
+                    v-for="child in getSelectedComponentChildren"
+                    :key="child.id"
+                    @click="selectedComponent = { ...child }"
+                  >
+                    {{ child.componentDesc.displayName[0] }}
+                  </mat-list-item>
+                </mat-list>
+              </div>
+            </mat-swipe-item>
+            <mat-swipe-item>
+              <mat-toolbar
+                size="xs"
+                color="support-3">
+                Props
+              </mat-toolbar>
+              <br>
+              <mat-list v-if="selectedComponent">
+                <template v-for="(prop, idx) in selectedComponent.props">
+                  <mat-color-select
+                    v-if="prop.name === 'color'"
+                    :key="`${selectedComponent.name}-${prop.name}-${idx}-color-select`"
+                    @input="color => updateSelectedComponentPropValues('color', color.name)"
+                  />
+                  <mat-list-item
+                    v-else-if="prop.type === 'Boolean'"
+                    :key="`${selectedComponent.name}-${prop.name}-${idx}-checkbox`"
+                  >
+                    <mat-checkbox
+                      :value="selectedComponent.propValues &&
+                      selectedComponent.propValues[prop.name]"
+                      @input="val => updateSelectedComponentPropValues(prop.name, val)"
+                    >
+                      {{ prop.name }}
+                    </mat-checkbox>
+                  </mat-list-item>
+                  <mat-menu
+                    v-else-if="prop.typeDesc"
+                    :key="`${selectedComponent.name}-${prop.name}-${idx}-menu`"
+                    :value="propMenus[prop.name]"
+                    @input="val => updatePropMenus(prop.name, val)"
+                  >
+                    <div slot="trigger">
+                      <mat-list-item
+                        :key="`${selectedComponent.name}-${prop.name}-${idx}-list-item`"
+                        @click="() => updatePropMenus(prop.name, true)"
+                      >
+                        {{ prop.name }}
+                      </mat-list-item>
+                    </div>
+                    <mat-list>
+                      <mat-list-item
+                        v-for="option in prop.typeDesc"
+                        :key="option"
+                        @click="() => updateSelectedComponentPropValues(prop.name, option)"
+                      >
+                        {{ option }}
+                      </mat-list-item>
+                    </mat-list>
+                  </mat-menu>
+                </template>
+              </mat-list>
+            </mat-swipe-item>
+          </mat-swipe>
+          <br>
+        </mat-container>
+      </mat-expansion>
+<!--      <mat-sidebar v-model="sidebar" color="blue-grey-3">-->
+<!--        <template slot="content">-->
+<!--          -->
+<!--        </template>-->
+<!--      </mat-sidebar>-->
     </div>
   </div>
 </template>
@@ -164,6 +200,8 @@ export default class App extends Vue {
   selectedComponent = null;
 
   propMenus = {};
+
+  swipe = 0;
 
   get getModal() {
     return this.modal;
@@ -226,14 +264,15 @@ export default class App extends Vue {
   updateSelectedComponentPropValues(propName, value) {
     const idx = this.components.findIndex(c => c.id === this.selectedComponent.id);
     const match = this.components[idx];
-    this.components.splice(idx, 1, {
+    const updated = {
       ...this.selectedComponent,
       propValues: {
         ...match.propValues,
         [propName]: value,
       },
-    });
-    // this.refreshValues();
+    };
+    this.components.splice(idx, 1, updated);
+    this.selectedComponent = updated;
   }
 }
 </script>

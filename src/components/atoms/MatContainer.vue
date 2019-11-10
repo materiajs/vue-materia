@@ -17,7 +17,12 @@ import MatThemeComponent from './MatThemeComponent.vue';
 // @tag mat-container
 // Container component
 export default class MatContainer extends MatThemeComponent {
-  @Prop({ type: String })
+  @Prop({
+    // 5px
+    // 15px
+    // 20px
+    type: String,
+  })
   padding;
 
   @Prop({ default: 'auto', type: String })

@@ -7,8 +7,6 @@ import MatThemeComponent from './MatThemeComponent.vue';
   props: {
     noPadding: Boolean,
     round: String,
-    // eslint-disable-next-line no-bitwise
-    shadow: Boolean | String,
   },
 })
 // @name MatToolbar
@@ -17,11 +15,18 @@ import MatThemeComponent from './MatThemeComponent.vue';
 // @extends MatThemeComponent
 // Toolbar component used for panel and page headers
 export default class Toolbar extends MatThemeComponent {
-  @Prop({ type: String })
-  gradient;
+  @Prop({ type: Boolean })
+  shadow;
 
-  @Prop({ type: String })
-  gradientDirection;
+  @Prop({
+    // 1
+    // 2
+    // 3
+    // 4
+    // 5
+    type: String,
+  })
+  round;
 
   @Prop({ type: String })
   zIndex;

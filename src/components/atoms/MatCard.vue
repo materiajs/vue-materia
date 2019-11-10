@@ -1,5 +1,8 @@
 <template functional>
-  <div :class="[ 'mat-card']" :style="props.initTheme(props)">
+  <div
+    :class="['mat-card', props.round ? `round-${props.round}` : '']"
+    :style="props.initTheme(props)"
+  >
     <slot />
   </div>
 </template>
@@ -24,6 +27,24 @@ import { defaultAccentColor } from '../../mixins/themeable';
 export default class MatCard extends MatThemeComponent {
   @Prop({ default: 'default', type: String })
   color;
+
+  @Prop({
+    // 5px
+    // 15px
+    // 20px
+    type: String,
+  })
+  padding;
+
+  @Prop({
+    // 1
+    // 2
+    // 3
+    // 4
+    // 5
+    type: String,
+  })
+  round;
 }
 </script>
 
@@ -33,7 +54,7 @@ export default class MatCard extends MatThemeComponent {
   .mat-card {
     background: white;
     box-shadow: $box-shadow-standard;
-    padding: 15px;
+    border-radius: var(--round);
 
     &-light {
       background: white;
