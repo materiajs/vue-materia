@@ -119,20 +119,18 @@ export default class MatMenu extends MatThemeComponent {
   @Watch('value')
   onValueChange(value) {
     const {
-      bottom,
-      height,
+      // bottom,
+      // height,
       left,
-      right,
-      top,
-      width,
-      x,
-      y,
+      // right,
+      // top,
+      // width,
+      // x,
+      // y,
     } = this.$refs['mat-menu-wrapper'].getBoundingClientRect();
-    console.log(bottom, height, left, right, top, width, x, y);
     if (value) {
       this.$nextTick(() => {
         this.$refs['menu-main'].style.left = `${left}px`;
-        console.dir(this.$refs['menu-main']);
       });
     }
   }

@@ -173,7 +173,6 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import uuid from 'uuid/v4';
-import ComponentTree from '@/ComponentTree.vue';
 import ComponentSelector from '@/components/molecules/ComponentSelector.vue';
 import Sidebar from '@/Sidebar.vue';
 import ComponentDisplay from '@/components/molecules/ComponentDisplay.vue';
@@ -182,7 +181,6 @@ import ComponentDisplay from '@/components/molecules/ComponentDisplay.vue';
   components: {
     ComponentDisplay,
     Sidebar,
-    ComponentTree,
     ComponentSelector,
   },
 })

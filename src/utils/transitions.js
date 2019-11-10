@@ -49,10 +49,6 @@ export default {
     beforeLeave: { 'transform-origin': 'top right' },
     leave: { opacity: [0, 1], scale: 0.2 },
   }),
-  getWithElement(el, key) {
-    console.log(el);
-    return this[key];
-  },
   // 'up-down': () => ({
   //   beforeEnter: { opacity: 0 },
   //   enter: { opacity: 1, translateY: [0, '25px'] },
