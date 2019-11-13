@@ -31,6 +31,7 @@
             max-width="800px"
             padding="15px"
           >
+            <mat-input v-model="input"></mat-input>
             <component-selector @input="onSelectComponent" />
             <br>
             <component-display
@@ -188,6 +189,8 @@ export default class App extends Vue {
   modal = false;
 
   sidebar = true;
+
+  input = '';
 
   editComponentSidebar = false;
 

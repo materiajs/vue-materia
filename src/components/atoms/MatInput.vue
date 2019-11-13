@@ -4,7 +4,6 @@
     :class="{ focused: props.value !== '', [props.size]: props.size }"
     :style="{
       ...props.initTheme(props),
-      '--text-color': props.color ? `var(--${props.color})` : undefined,
     }"
   >
     <slot />
@@ -16,7 +15,10 @@
       :type="type"
       @input="({ target: { value } }) => listeners.input(value)"
     >
-    <div tabindex="-1" class="mat-input-placeholder">
+    <div
+      tabindex="-1"
+      class="mat-input-placeholder"
+    >
       <div class="mat-frame-placeholder-bg"></div>
       <slot name="placeholder">
         {{ props.placeholder }}
@@ -81,6 +83,7 @@ export default class MatInput extends MatThemeComponent {
       font-size: 0.8em;
     }
     &-placeholder {
+      color: var(--text-color);
       margin: 0 -3px;
       padding: 0 3px;
       position: absolute;
@@ -91,7 +94,6 @@ export default class MatInput extends MatThemeComponent {
       transition: top $standard-transition-t-e, font-size $standard-transition-t-e;
       user-select: none;
       outline: none;
-      z-index: -1;
     }
     &:focus-within, &.focused {
       .mat-input-placeholder {
