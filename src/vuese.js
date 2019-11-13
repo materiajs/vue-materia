@@ -28,7 +28,7 @@ try {
       }
       parserRes[propertyName] = component;
     });
-    const path = './dist/vuese.json';
+    const path = './src/vuese.json';
     // console.log(parserRes);
     fs.writeFileSync(path, JSON.stringify(parserRes, null, 2));
   });
