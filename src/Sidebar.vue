@@ -10,7 +10,7 @@
 </template>
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import components from '../dist/vuese.json';
+import components from '@/vuese.json';
 
 @Component({
   data: () => ({

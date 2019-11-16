@@ -16,7 +16,7 @@ import theme from '@materiajs/theme';
             true,
           )
           : undefined,
-        '--round': props.round ? `${parseInt(props.round, 10) * 3}px` : undefined,
+        '--round': props.round ? `${parseInt(props.round, 10) * 5}px` : undefined,
         padding: props.padding,
         margin: props.margin,
         display: props.display,

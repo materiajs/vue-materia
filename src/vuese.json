@@ -1,0 +1,896 @@
+{
+  "MatButton": {
+    "componentDesc": {
+      "default": [
+        "Button component"
+      ],
+      "name": [
+        "MatButton"
+      ],
+      "displayName": [
+        "Button"
+      ],
+      "tag": [
+        "mat-button"
+      ],
+      "group": [
+        "Buttons"
+      ],
+      "extends": [
+        "MatThemeComponent"
+      ]
+    },
+    "props": [
+      {
+        "name": "color",
+        "type": "String",
+        "describe": []
+      },
+      {
+        "name": "gradient",
+        "type": "String",
+        "describe": []
+      },
+      {
+        "name": "gradientDirection",
+        "type": "String",
+        "describe": []
+      },
+      {
+        "name": "height",
+        "type": "String",
+        "describe": []
+      },
+      {
+        "name": "width",
+        "type": "String",
+        "describe": []
+      },
+      {
+        "name": "size",
+        "type": "String",
+        "describe": [],
+        "typeDesc": [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl"
+        ]
+      },
+      {
+        "name": "initTheme",
+        "type": "Function",
+        "describe": [],
+        "default": "(props, setDefaults = true) => {\n  '--color': props.color ? `var(--${props.color})` : undefined,\n  '--gradient-color': props.gradient ? `var(--${props.gradient})` : undefined,\n  '--gradient-direction': props.gradientDirection || undefined,\n  '--text-color': props.color ? theme.computeTextColor(document.documentElement.style.getPropertyValue(`--${props.color}`), true) : undefined,\n  '--round': props.round ? `${parseInt(props.round, 10) * 3}px` : undefined,\n  padding: props.padding,\n  margin: props.margin,\n  display: props.display,\n  cursor: props.cursor,\n  height: props.height,\n  width: props.width,\n  'max-width': props.maxWidth,\n  'z-index': props.zIndex,\n  ...(setDefaults ? {\n    background: props.color ? `linear-gradient(\n              var(--gradient-direction, to bottom),\n              var(--color),\n              ${props.gradient ? 'var(--gradient-color)' : 'var(--color)'}\n            )` : undefined,\n    color: 'var(--text-color, var(--default-text))'\n  } : {})\n}"
+      },
+      {
+        "name": "color",
+        "type": "String",
+        "describe": [],
+        "default": "primary"
+      },
+      {
+        "name": "shadow",
+        "type": "Boolean",
+        "describe": []
+      },
+      {
+        "name": "size",
+        "type": "String",
+        "describe": [
+          "['xs', 'small']"
+        ]
+      },
+      {
+        "name": "outline",
+        "type": "Boolean",
+        "describe": []
+      },
+      {
+        "name": "space",
+        "type": "String",
+        "describe": []
+      }
+    ],
+    "slots": [
+      {
+        "name": "default",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      }
+    ]
+  },
+  "MatButtonGroup": {
+    "componentDesc": {
+      "default": []
+    },
+    "name": "ButtonGroup",
+    "slots": [
+      {
+        "name": "default",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      }
+    ]
+  },
+  "MatCard": {
+    "componentDesc": {
+      "default": [
+        "Card component"
+      ],
+      "name": [
+        "MatCard"
+      ],
+      "displayName": [
+        "Card"
+      ],
+      "tag": [
+        "mat-card"
+      ]
+    },
+    "props": [
+      {
+        "name": "color",
+        "type": "String",
+        "describe": [],
+        "default": "default"
+      },
+      {
+        "name": "padding",
+        "type": "String",
+        "describe": [],
+        "typeDesc": [
+          "5px",
+          "15px",
+          "20px"
+        ]
+      },
+      {
+        "name": "round",
+        "type": "String",
+        "describe": [],
+        "typeDesc": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "name": "hideOnMq",
+        "type": null,
+        "describe": []
+      },
+      {
+        "name": "overflow",
+        "type": null,
+        "describe": []
+      },
+      {
+        "name": "padding",
+        "type": null,
+        "describe": []
+      }
+    ],
+    "slots": [
+      {
+        "name": "default",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      }
+    ]
+  },
+  "MatCheckbox": {
+    "componentDesc": {
+      "default": []
+    },
+    "name": "mat-checkbox",
+    "props": [
+      {
+        "name": "margin",
+        "type": null,
+        "describe": []
+      },
+      {
+        "name": "type",
+        "type": null,
+        "describe": []
+      },
+      {
+        "name": "value",
+        "type": null,
+        "describe": []
+      },
+      {
+        "name": "size",
+        "type": null,
+        "describe": []
+      }
+    ],
+    "events": [
+      {
+        "name": "input",
+        "isSync": false,
+        "syncProp": "",
+        "describe": []
+      }
+    ],
+    "slots": [
+      {
+        "name": "default",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      }
+    ]
+  },
+  "MatContainer": {
+    "componentDesc": {
+      "default": [
+        "Container component"
+      ],
+      "name": [
+        "MatContainer"
+      ],
+      "displayName": [
+        "Container"
+      ],
+      "tag": [
+        "mat-container"
+      ]
+    },
+    "props": [
+      {
+        "name": "padding",
+        "type": "String",
+        "describe": [],
+        "typeDesc": [
+          "5px",
+          "15px",
+          "20px"
+        ]
+      },
+      {
+        "name": "margin",
+        "type": "String",
+        "describe": [],
+        "default": "auto"
+      },
+      {
+        "name": "display",
+        "type": "String",
+        "describe": [],
+        "default": "block"
+      },
+      {
+        "name": "maxWidth",
+        "type": "String",
+        "describe": []
+      },
+      {
+        "name": "cursor",
+        "type": "String",
+        "describe": [],
+        "default": "initial"
+      }
+    ],
+    "slots": [
+      {
+        "name": "default",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      }
+    ]
+  },
+  "MatExpansion": {
+    "componentDesc": {
+      "default": []
+    },
+    "props": [
+      {
+        "name": "value",
+        "type": "Boolean",
+        "describe": []
+      }
+    ],
+    "slots": [
+      {
+        "name": "default",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      }
+    ]
+  },
+  "MatFloatingButtonGroup": {
+    "componentDesc": {
+      "default": []
+    },
+    "props": [
+      {
+        "name": "bottom",
+        "type": "String",
+        "describe": [],
+        "default": "30px"
+      },
+      {
+        "name": "right",
+        "type": "String",
+        "describe": [],
+        "default": "30px"
+      }
+    ],
+    "slots": [
+      {
+        "name": "default",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      }
+    ]
+  },
+  "MatInput": {
+    "componentDesc": {
+      "default": []
+    },
+    "props": [
+      {
+        "name": "color",
+        "type": "String",
+        "describe": []
+      },
+      {
+        "name": "round",
+        "type": "Number",
+        "describe": [],
+        "default": 5
+      },
+      {
+        "name": "disabled",
+        "type": "Boolean",
+        "describe": []
+      },
+      {
+        "name": "focusBorderColor",
+        "type": "String",
+        "describe": [],
+        "default": "white"
+      },
+      {
+        "name": "placeholder",
+        "type": "String",
+        "describe": [],
+        "default": "Enter text"
+      },
+      {
+        "name": "type",
+        "type": "String",
+        "describe": []
+      },
+      {
+        "name": "value",
+        "type": "String",
+        "describe": [],
+        "default": ""
+      },
+      {
+        "name": "size",
+        "type": "String",
+        "describe": []
+      }
+    ],
+    "slots": [
+      {
+        "name": "default",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      },
+      {
+        "name": "placeholder",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      },
+      {
+        "name": "input-right",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      }
+    ]
+  },
+  "MatList": {
+    "componentDesc": {
+      "default": [
+        "List"
+      ],
+      "name": [
+        "MatList"
+      ],
+      "displayName": [
+        "List"
+      ],
+      "tag": [
+        "mat-list"
+      ]
+    },
+    "props": [
+      {
+        "name": "bordered",
+        "type": "Boolean",
+        "describe": []
+      }
+    ],
+    "slots": [
+      {
+        "name": "default",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      }
+    ]
+  },
+  "MatListItem": {
+    "componentDesc": {
+      "default": [
+        "List item"
+      ],
+      "name": [
+        "MatListItem"
+      ],
+      "displayName": [
+        "List item"
+      ],
+      "tag": [
+        "mat-list-item"
+      ]
+    },
+    "name": "ListItem",
+    "props": [
+      {
+        "name": "active",
+        "type": null,
+        "describe": []
+      },
+      {
+        "name": "color",
+        "type": null,
+        "describe": []
+      },
+      {
+        "name": "href",
+        "type": null,
+        "describe": []
+      }
+    ],
+    "slots": [
+      {
+        "name": "default",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      }
+    ]
+  },
+  "MatMenu": {
+    "componentDesc": {
+      "default": [
+        "Menu component"
+      ],
+      "name": [
+        "MatMenu"
+      ],
+      "displayName": [
+        "Menu"
+      ],
+      "tag": [
+        "mat-menu"
+      ],
+      "group": [
+        "Menus"
+      ]
+    },
+    "props": [
+      {
+        "name": "color",
+        "type": "String",
+        "describe": [],
+        "default": "default"
+      },
+      {
+        "name": "position",
+        "type": null,
+        "describe": []
+      },
+      {
+        "name": "value",
+        "type": null,
+        "describe": []
+      },
+      {
+        "name": "root",
+        "type": null,
+        "describe": []
+      }
+    ],
+    "events": [
+      {
+        "name": "input",
+        "isSync": false,
+        "syncProp": "",
+        "describe": []
+      }
+    ],
+    "mixIns": [
+      {
+        "mixIn": "clickaway"
+      },
+      {
+        "mixIn": "sizeable"
+      },
+      {
+        "mixIn": "mediaQuery"
+      }
+    ],
+    "slots": [
+      {
+        "name": "trigger",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      },
+      {
+        "name": "header",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      },
+      {
+        "name": "default",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      }
+    ]
+  },
+  "MatModal": {
+    "componentDesc": {
+      "default": []
+    },
+    "props": [
+      {
+        "name": "size",
+        "type": "String",
+        "describe": []
+      },
+      {
+        "name": "value",
+        "type": "Boolean",
+        "describe": []
+      }
+    ]
+  },
+  "MatNavLink": {
+    "componentDesc": {
+      "default": []
+    },
+    "name": "NavLink",
+    "props": [
+      {
+        "name": "href",
+        "type": null,
+        "describe": []
+      },
+      {
+        "name": "target",
+        "type": null,
+        "describe": []
+      }
+    ],
+    "slots": [
+      {
+        "name": "default",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      }
+    ]
+  },
+  "MatSidebar": {
+    "componentDesc": {
+      "default": []
+    },
+    "props": [
+      {
+        "name": "color",
+        "type": "String",
+        "describe": [],
+        "default": "default"
+      },
+      {
+        "name": "overlay",
+        "type": "Boolean",
+        "describe": []
+      },
+      {
+        "name": "value",
+        "type": "Boolean",
+        "describe": []
+      }
+    ],
+    "events": [
+      {
+        "name": "input",
+        "isSync": false,
+        "syncProp": "",
+        "describe": []
+      }
+    ],
+    "slots": [
+      {
+        "name": "default",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      },
+      {
+        "name": "content",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      },
+      {
+        "name": "default",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      },
+      {
+        "name": "content",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      }
+    ]
+  },
+  "MatSwipe": {
+    "componentDesc": {
+      "default": []
+    },
+    "slots": [
+      {
+        "name": "default",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "script"
+      },
+      {
+        "name": "default",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      }
+    ],
+    "props": [
+      {
+        "name": "gradient",
+        "type": "String",
+        "describe": []
+      },
+      {
+        "name": "value",
+        "type": "Number",
+        "describe": []
+      }
+    ]
+  },
+  "MatSwipeItem": {
+    "componentDesc": {
+      "default": []
+    },
+    "props": [
+      {
+        "name": "gradient",
+        "type": "String",
+        "describe": []
+      }
+    ]
+  },
+  "MatThemeComponent": {
+    "componentDesc": {
+      "default": []
+    },
+    "props": [
+      {
+        "name": "color",
+        "type": "String",
+        "describe": []
+      },
+      {
+        "name": "gradient",
+        "type": "String",
+        "describe": []
+      },
+      {
+        "name": "gradientDirection",
+        "type": "String",
+        "describe": []
+      },
+      {
+        "name": "height",
+        "type": "String",
+        "describe": []
+      },
+      {
+        "name": "width",
+        "type": "String",
+        "describe": []
+      },
+      {
+        "name": "size",
+        "type": "String",
+        "describe": [],
+        "typeDesc": [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl"
+        ]
+      },
+      {
+        "name": "initTheme",
+        "type": "Function",
+        "describe": [],
+        "default": "(props, setDefaults = true) => {\n  '--color': props.color ? `var(--${props.color})` : undefined,\n  '--gradient-color': props.gradient ? `var(--${props.gradient})` : undefined,\n  '--gradient-direction': props.gradientDirection || undefined,\n  '--text-color': props.color ? theme.computeTextColor(document.documentElement.style.getPropertyValue(`--${props.color}`), true) : undefined,\n  '--round': props.round ? `${parseInt(props.round, 10) * 3}px` : undefined,\n  padding: props.padding,\n  margin: props.margin,\n  display: props.display,\n  cursor: props.cursor,\n  height: props.height,\n  width: props.width,\n  'max-width': props.maxWidth,\n  'z-index': props.zIndex,\n  ...(setDefaults ? {\n    background: props.color ? `linear-gradient(\n              var(--gradient-direction, to bottom),\n              var(--color),\n              ${props.gradient ? 'var(--gradient-color)' : 'var(--color)'}\n            )` : undefined,\n    color: 'var(--text-color, var(--default-text))'\n  } : {})\n}"
+      }
+    ]
+  },
+  "MatToolbar": {
+    "componentDesc": {
+      "default": [
+        "Toolbar component used for panel and page headers"
+      ],
+      "name": [
+        "MatToolbar"
+      ],
+      "displayName": [
+        "Toolbar"
+      ],
+      "tag": [
+        "mat-toolbar"
+      ],
+      "extends": [
+        "MatThemeComponent"
+      ]
+    },
+    "props": [
+      {
+        "name": "color",
+        "type": "String",
+        "describe": []
+      },
+      {
+        "name": "gradient",
+        "type": "String",
+        "describe": []
+      },
+      {
+        "name": "gradientDirection",
+        "type": "String",
+        "describe": []
+      },
+      {
+        "name": "height",
+        "type": "String",
+        "describe": []
+      },
+      {
+        "name": "width",
+        "type": "String",
+        "describe": []
+      },
+      {
+        "name": "size",
+        "type": "String",
+        "describe": [],
+        "typeDesc": [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl"
+        ]
+      },
+      {
+        "name": "initTheme",
+        "type": "Function",
+        "describe": [],
+        "default": "(props, setDefaults = true) => {\n  '--color': props.color ? `var(--${props.color})` : undefined,\n  '--gradient-color': props.gradient ? `var(--${props.gradient})` : undefined,\n  '--gradient-direction': props.gradientDirection || undefined,\n  '--text-color': props.color ? theme.computeTextColor(document.documentElement.style.getPropertyValue(`--${props.color}`), true) : undefined,\n  '--round': props.round ? `${parseInt(props.round, 10) * 3}px` : undefined,\n  padding: props.padding,\n  margin: props.margin,\n  display: props.display,\n  cursor: props.cursor,\n  height: props.height,\n  width: props.width,\n  'max-width': props.maxWidth,\n  'z-index': props.zIndex,\n  ...(setDefaults ? {\n    background: props.color ? `linear-gradient(\n              var(--gradient-direction, to bottom),\n              var(--color),\n              ${props.gradient ? 'var(--gradient-color)' : 'var(--color)'}\n            )` : undefined,\n    color: 'var(--text-color, var(--default-text))'\n  } : {})\n}"
+      },
+      {
+        "name": "shadow",
+        "type": "Boolean",
+        "describe": []
+      },
+      {
+        "name": "round",
+        "type": "String",
+        "describe": [],
+        "typeDesc": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "name": "zIndex",
+        "type": "String",
+        "describe": []
+      },
+      {
+        "name": "noPadding",
+        "type": "Boolean",
+        "describe": []
+      },
+      {
+        "name": "round",
+        "type": "String",
+        "describe": []
+      }
+    ]
+  }
+}
