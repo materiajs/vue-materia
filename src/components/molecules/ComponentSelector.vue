@@ -21,7 +21,7 @@
 
 <script type="text/tsx">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import components from '../../../dist/vuese.json';
+import components from '@/vuese.json';
 
 @Component({
   data: () => ({

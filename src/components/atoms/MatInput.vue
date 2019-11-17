@@ -40,7 +40,7 @@ import MatThemeComponent from './MatThemeComponent.vue';
     },
     round: {
       type: Number,
-      default: 5,
+      default: 1,
     },
     disabled: Boolean,
     focusBorderColor: {
@@ -56,7 +56,6 @@ import MatThemeComponent from './MatThemeComponent.vue';
       type: String,
       default: '',
     },
-    size: String,
   },
 })
 export default class MatInput extends MatThemeComponent {
@@ -66,6 +65,18 @@ export default class MatInput extends MatThemeComponent {
 <style scoped lang="scss">
   @import "../../styles/main";
   .mat-input {
+    @mixin variables($min-height, $font-size) {
+      min-height: $min-height;
+      font-size: $font-size;
+    }
+
+    @include variables(45px, 1rem);
+    &.lg {
+      @include variables(60px, 1.1rem);
+    }
+    &.xl {
+      @include variables(75px, 1.2rem);
+    }
     border-radius: var(--round);
     border: 1px solid var(--text-color, #212121);
     color: var(--text-color);
@@ -74,13 +85,11 @@ export default class MatInput extends MatThemeComponent {
     display: flex;
     flex-wrap: wrap;
     min-width: 250px;
-    min-height: 45px;
     input {
       flex: 1;
       background: rgba(0,0,0,0);
       color: inherit;
-      padding: 20px 15px 10px;
-      font-size: 0.8em;
+      padding: 20px 20px 10px;
     }
     &-placeholder {
       color: var(--text-color);
@@ -88,8 +97,7 @@ export default class MatInput extends MatThemeComponent {
       padding: 0 3px;
       position: absolute;
       top: 50%;
-      font-size: 14px;
-      left: 15px;
+      left: 20px;
       transform: translateY(-50%);
       transition: top $standard-transition-t-e, font-size $standard-transition-t-e;
       user-select: none;
@@ -106,7 +114,7 @@ export default class MatInput extends MatThemeComponent {
           left: 0;
           transform: translateY(-50%);
         }
-        top: 10px;
+        top: 25%;
         font-size: 0.7em;
       }
     }

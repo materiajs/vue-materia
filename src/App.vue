@@ -24,14 +24,31 @@
       <mat-container
         height="100%"
         width="100%"
-        color="blue-grey-5"
       >
         <div @click="closeEditComponent()">
           <mat-container
             max-width="800px"
             padding="15px"
           >
+            <mat-input
+                v-model="input"
+                size="xl"
+                round="5"
+            ></mat-input>
+            <br>
+            <mat-input
+                v-model="input"
+                size="lg"
+                round="7"
+            ></mat-input>
+            <br>
             <mat-input v-model="input"></mat-input>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <br>
             <component-selector @input="onSelectComponent" />
             <br>
             <component-display
@@ -162,11 +179,6 @@
           <br>
         </mat-container>
       </mat-expansion>
-<!--      <mat-sidebar v-model="sidebar" color="blue-grey-3">-->
-<!--        <template slot="content">-->
-<!--          -->
-<!--        </template>-->
-<!--      </mat-sidebar>-->
     </div>
   </div>
 </template>
@@ -193,6 +205,8 @@ export default class App extends Vue {
   input = '';
 
   editComponentSidebar = false;
+
+  checkbox = false;
 
   shadow = true;
 

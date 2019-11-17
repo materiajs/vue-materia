@@ -1,7 +1,11 @@
 <template>
   <div
     @click.stop="onClickCheckbox"
-    class="mat-checkbox">
+    class="mat-checkbox"
+    :style="{
+      ...initTheme($props),
+    }"
+  >
     <div
       :class="{ checked: value, [type]: true, margin }"
       class="mat-checkbox-box mat-flex-center">
@@ -17,36 +21,41 @@
 </template>
 
 <script>
-import t from 'vue-types';
+import { Prop, Component } from 'vue-property-decorator';
+import MatThemeComponent from '@/components/atoms/MatThemeComponent.vue';
 
-export default {
-  name: 'mat-checkbox',
-  props: {
-    margin: t.bool.def(true),
-    type: t.string.def('default'),
-    value: t.bool.def(false),
-    size: t.oneOf(['regular', 'small', 'large']),
-  },
-  computed: {
-    getIcon() {
-      if (this.type === 'star') {
-        return 'fa-star';
-      }
-      return 'fa-check';
-    },
-    getPrefix() {
-      if (this.type === 'star') {
-        return this.value ? 'fas' : 'far';
-      }
-      return 'fas';
-    },
-  },
-  methods: {
-    onClickCheckbox() {
-      this.$emit('input', !this.value);
-    },
-  },
-};
+@Component({})
+export default class MatCheckbox extends MatThemeComponent {
+  @Prop({ type: String, default: 'default' })
+  color;
+
+  @Prop({ default: true, type: Boolean })
+  margin;
+
+  @Prop({ default: 'default', type: String })
+  type;
+
+  @Prop({ default: false, type: Boolean })
+  value;
+
+  get getIcon() {
+    if (this.type === 'star') {
+      return 'fa-star';
+    }
+    return 'fa-check';
+  }
+
+  get getPrefix() {
+    if (this.type === 'star') {
+      return this.value ? 'fas' : 'far';
+    }
+    return 'fas';
+  }
+
+  onClickCheckbox() {
+    this.$emit('input', !this.value);
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -58,6 +67,8 @@ export default {
     cursor: pointer;
     display: inline-flex;
     align-items: center;
+    background: none!important;
+    user-select: none;
     &-box {
       position: relative;
       border-radius: 5px;
@@ -71,7 +82,7 @@ export default {
         margin-right: 10px;
       }
       &.default {
-        border: 1px solid;
+        border: 1px solid var(--text-color);
         color: white;
         i {
           opacity: 0;

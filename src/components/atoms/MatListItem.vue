@@ -42,8 +42,12 @@ export default {
       display: block;
       text-decoration: none;
     }
-    &.active, &:hover, &:focus {
+    &.active, &:hover {
       background: rgba(0,0,0,0.05);
+      outline: none;
+    }
+
+    &:focus {
       outline: none;
     }
   }
