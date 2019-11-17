@@ -62,7 +62,7 @@
         "name": "initTheme",
         "type": "Function",
         "describe": [],
-        "default": "(props, setDefaults = true) => {\n  '--color': props.color ? `var(--${props.color})` : undefined,\n  '--gradient-color': props.gradient ? `var(--${props.gradient})` : undefined,\n  '--gradient-direction': props.gradientDirection || undefined,\n  '--text-color': props.color ? theme.computeTextColor(document.documentElement.style.getPropertyValue(`--${props.color}`), true) : undefined,\n  '--round': props.round ? `${parseInt(props.round, 10) * 3}px` : undefined,\n  padding: props.padding,\n  margin: props.margin,\n  display: props.display,\n  cursor: props.cursor,\n  height: props.height,\n  width: props.width,\n  'max-width': props.maxWidth,\n  'z-index': props.zIndex,\n  ...(setDefaults ? {\n    background: props.color ? `linear-gradient(\n              var(--gradient-direction, to bottom),\n              var(--color),\n              ${props.gradient ? 'var(--gradient-color)' : 'var(--color)'}\n            )` : undefined,\n    color: 'var(--text-color, var(--default-text))'\n  } : {})\n}"
+        "default": "(props, setDefaults = true) => {\n  '--color': props.color ? `var(--${props.color})` : undefined,\n  '--gradient-color': props.gradient ? `var(--${props.gradient})` : undefined,\n  '--gradient-direction': props.gradientDirection || undefined,\n  '--text-color': props.color ? theme.computeTextColor(document.documentElement.style.getPropertyValue(`--${props.color}`), true) : undefined,\n  '--round': props.round ? `${parseInt(props.round, 10) * 5}px` : undefined,\n  padding: props.padding,\n  margin: props.margin,\n  display: props.display,\n  cursor: props.cursor,\n  height: props.height,\n  width: props.width,\n  'max-width': props.maxWidth,\n  'z-index': props.zIndex,\n  ...(setDefaults ? {\n    background: props.color ? `linear-gradient(\n              var(--gradient-direction, to bottom),\n              var(--color),\n              ${props.gradient ? 'var(--gradient-color)' : 'var(--color)'}\n            )` : undefined,\n    color: 'var(--text-color, var(--default-text))'\n  } : {})\n}"
       },
       {
         "name": "color",
@@ -195,26 +195,27 @@
     "componentDesc": {
       "default": []
     },
-    "name": "mat-checkbox",
     "props": [
       {
+        "name": "color",
+        "type": "String",
+        "describe": [],
+        "default": "default"
+      },
+      {
         "name": "margin",
-        "type": null,
+        "type": "Boolean",
         "describe": []
       },
       {
         "name": "type",
-        "type": null,
-        "describe": []
+        "type": "String",
+        "describe": [],
+        "default": "default"
       },
       {
         "name": "value",
-        "type": null,
-        "describe": []
-      },
-      {
-        "name": "size",
-        "type": null,
+        "type": "Boolean",
         "describe": []
       }
     ],
@@ -363,7 +364,7 @@
         "name": "round",
         "type": "Number",
         "describe": [],
-        "default": 5
+        "default": 1
       },
       {
         "name": "disabled",
@@ -392,11 +393,6 @@
         "type": "String",
         "describe": [],
         "default": ""
-      },
-      {
-        "name": "size",
-        "type": "String",
-        "describe": []
       }
     ],
     "slots": [
@@ -793,7 +789,7 @@
         "name": "initTheme",
         "type": "Function",
         "describe": [],
-        "default": "(props, setDefaults = true) => {\n  '--color': props.color ? `var(--${props.color})` : undefined,\n  '--gradient-color': props.gradient ? `var(--${props.gradient})` : undefined,\n  '--gradient-direction': props.gradientDirection || undefined,\n  '--text-color': props.color ? theme.computeTextColor(document.documentElement.style.getPropertyValue(`--${props.color}`), true) : undefined,\n  '--round': props.round ? `${parseInt(props.round, 10) * 3}px` : undefined,\n  padding: props.padding,\n  margin: props.margin,\n  display: props.display,\n  cursor: props.cursor,\n  height: props.height,\n  width: props.width,\n  'max-width': props.maxWidth,\n  'z-index': props.zIndex,\n  ...(setDefaults ? {\n    background: props.color ? `linear-gradient(\n              var(--gradient-direction, to bottom),\n              var(--color),\n              ${props.gradient ? 'var(--gradient-color)' : 'var(--color)'}\n            )` : undefined,\n    color: 'var(--text-color, var(--default-text))'\n  } : {})\n}"
+        "default": "(props, setDefaults = true) => {\n  '--color': props.color ? `var(--${props.color})` : undefined,\n  '--gradient-color': props.gradient ? `var(--${props.gradient})` : undefined,\n  '--gradient-direction': props.gradientDirection || undefined,\n  '--text-color': props.color ? theme.computeTextColor(document.documentElement.style.getPropertyValue(`--${props.color}`), true) : undefined,\n  '--round': props.round ? `${parseInt(props.round, 10) * 5}px` : undefined,\n  padding: props.padding,\n  margin: props.margin,\n  display: props.display,\n  cursor: props.cursor,\n  height: props.height,\n  width: props.width,\n  'max-width': props.maxWidth,\n  'z-index': props.zIndex,\n  ...(setDefaults ? {\n    background: props.color ? `linear-gradient(\n              var(--gradient-direction, to bottom),\n              var(--color),\n              ${props.gradient ? 'var(--gradient-color)' : 'var(--color)'}\n            )` : undefined,\n    color: 'var(--text-color, var(--default-text))'\n  } : {})\n}"
       }
     ]
   },
@@ -857,7 +853,7 @@
         "name": "initTheme",
         "type": "Function",
         "describe": [],
-        "default": "(props, setDefaults = true) => {\n  '--color': props.color ? `var(--${props.color})` : undefined,\n  '--gradient-color': props.gradient ? `var(--${props.gradient})` : undefined,\n  '--gradient-direction': props.gradientDirection || undefined,\n  '--text-color': props.color ? theme.computeTextColor(document.documentElement.style.getPropertyValue(`--${props.color}`), true) : undefined,\n  '--round': props.round ? `${parseInt(props.round, 10) * 3}px` : undefined,\n  padding: props.padding,\n  margin: props.margin,\n  display: props.display,\n  cursor: props.cursor,\n  height: props.height,\n  width: props.width,\n  'max-width': props.maxWidth,\n  'z-index': props.zIndex,\n  ...(setDefaults ? {\n    background: props.color ? `linear-gradient(\n              var(--gradient-direction, to bottom),\n              var(--color),\n              ${props.gradient ? 'var(--gradient-color)' : 'var(--color)'}\n            )` : undefined,\n    color: 'var(--text-color, var(--default-text))'\n  } : {})\n}"
+        "default": "(props, setDefaults = true) => {\n  '--color': props.color ? `var(--${props.color})` : undefined,\n  '--gradient-color': props.gradient ? `var(--${props.gradient})` : undefined,\n  '--gradient-direction': props.gradientDirection || undefined,\n  '--text-color': props.color ? theme.computeTextColor(document.documentElement.style.getPropertyValue(`--${props.color}`), true) : undefined,\n  '--round': props.round ? `${parseInt(props.round, 10) * 5}px` : undefined,\n  padding: props.padding,\n  margin: props.margin,\n  display: props.display,\n  cursor: props.cursor,\n  height: props.height,\n  width: props.width,\n  'max-width': props.maxWidth,\n  'z-index': props.zIndex,\n  ...(setDefaults ? {\n    background: props.color ? `linear-gradient(\n              var(--gradient-direction, to bottom),\n              var(--color),\n              ${props.gradient ? 'var(--gradient-color)' : 'var(--color)'}\n            )` : undefined,\n    color: 'var(--text-color, var(--default-text))'\n  } : {})\n}"
       },
       {
         "name": "shadow",
