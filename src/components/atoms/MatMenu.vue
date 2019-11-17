@@ -122,15 +122,21 @@ export default class MatMenu extends MatThemeComponent {
       // bottom,
       // height,
       left,
-      // right,
+      right,
       // top,
       // width,
       // x,
       // y,
     } = this.$refs['mat-menu-wrapper'].getBoundingClientRect();
     if (value) {
+      let property = 'left';
+      let propValue = left;
+      if ((window.innerWidth / 2) < left) {
+        property = 'right';
+        propValue = window.innerWidth - right;
+      }
       this.$nextTick(() => {
-        this.$refs['menu-main'].style.left = `${left}px`;
+        this.$refs['menu-main'].style[property] = `${propValue}px`;
       });
     }
   }
