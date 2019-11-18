@@ -1,4 +1,32 @@
 {
+  "MatAvatar": {
+    "componentDesc": {
+      "default": []
+    },
+    "name": "Avatar",
+    "props": [
+      {
+        "name": "size",
+        "type": null,
+        "describe": []
+      },
+      {
+        "name": "src",
+        "type": null,
+        "describe": []
+      },
+      {
+        "name": "alt",
+        "type": null,
+        "describe": []
+      },
+      {
+        "name": "borderRadius",
+        "type": null,
+        "describe": []
+      }
+    ]
+  },
   "MatButton": {
     "componentDesc": {
       "default": [
@@ -362,7 +390,7 @@
       },
       {
         "name": "round",
-        "type": "Number",
+        "type": null,
         "describe": [],
         "default": 1
       },
@@ -488,6 +516,22 @@
         "describe": []
       }
     ],
+    "slots": [
+      {
+        "name": "default",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      }
+    ]
+  },
+  "MatLogo": {
+    "componentDesc": {
+      "default": []
+    },
+    "name": "MatLogo",
     "slots": [
       {
         "name": "default",
