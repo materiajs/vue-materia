@@ -8,14 +8,11 @@
 
 <script>
 import t from 'vue-types';
-import sizeable from '../../../mixins/sizeable';
 
 export default {
   name: 'Avatar',
-  mixins: [
-    sizeable,
-  ],
   props: {
+    size: t.string,
     src: t.string,
     alt: t.string,
     borderRadius: t.string.def('50%'),
@@ -33,7 +30,7 @@ export default {
 <style scoped lang="scss">
   .mat-avatar {
     max-width: 100%;
-    max-height: 100%;
+    max-height: calc(100% - 10px);
     border: 2px solid white;
     box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.3);
     &.xs {

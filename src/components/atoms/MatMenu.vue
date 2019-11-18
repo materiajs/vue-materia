@@ -94,26 +94,8 @@ export default class MatMenu extends MatThemeComponent {
     return this.bottomLeft ? 'explode-left' : 'explode';
   }
 
-  mounted() {
-    if (this.root && this.$el && this.$el.parentNode) {
-      this.originalParent = this.$el.parentNode;
-      this.originalParent.addEventListener('click', this.onClickParent, false);
-      this.originalParent.removeChild(this.$el);
-      document.getElementById('app').appendChild(this.$el);
-    }
-  }
-
   onClickOutside() {
     this.$emit('input', false);
-  }
-
-  onClickParent(e) {
-    this.top = e.pageY + 15;
-    if (this.bottomLeft) {
-      this.left = Math.max(0, e.pageX - this.$refs['menu-main'].clientWidth + 15);
-    } else {
-      this.left = Math.max(0, e.pageX + this.$refs['menu-main'].clientWidth - 15);
-    }
   }
 
   @Watch('value')
@@ -157,6 +139,7 @@ export default class MatMenu extends MatThemeComponent {
     }
     .mat-menu-trigger {
       cursor: pointer;
+      display: flex;
     }
     .mat-menu {
       min-width: 280px;

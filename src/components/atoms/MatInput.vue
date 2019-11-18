@@ -39,7 +39,7 @@ import MatThemeComponent from './MatThemeComponent.vue';
       type: String,
     },
     round: {
-      type: Number,
+      type: Number | String,
       default: 1,
     },
     disabled: Boolean,

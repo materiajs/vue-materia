@@ -13,9 +13,15 @@ export { default as MatContainer } from './MatContainer.vue';
 // Expansion
 export { default as MatExpansion } from './MatExpansion.vue';
 
+// Image
+export { default as MatAvatar } from './MatAvatar.vue';
+
 // Input
 export { default as MatInput } from './MatInput.vue';
 export { default as MatCheckbox } from './MatCheckbox.vue';
+
+// Logo
+export { default as MatLogo } from './MatLogo.vue';
 
 // Toolbar
 export { default as MatToolbar } from './MatToolbar.vue';

@@ -58,6 +58,7 @@ export default class Toolbar extends MatThemeComponent {
     align-items: center;
     border-radius: var(--round);
     display: flex;
+    justify-content: space-between;
     height: 60px;
     position: relative;
     &.xs {

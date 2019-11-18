@@ -7,7 +7,20 @@
       color="blue-grey-2"
     >
       <mat-nav-link @click="() => sidebar = !sidebar">
-        Sidebar
+        <mat-logo>
+          Sidebar
+        </mat-logo>
+      </mat-nav-link>
+      <mat-nav-link>
+        <mat-menu v-model="menu">
+          <mat-avatar
+            slot="trigger"
+            size="small"
+            src="https://yt3.ggpht.com/a-/AAuE7mB6UdWfnxd56C-205HHDPSZpyr4j6rr30HCyYXgSw=s88-c-k-c0xffffffff-no-rj-mo" />
+          <div>
+            Sign out
+          </div>
+        </mat-menu>
       </mat-nav-link>
     </mat-toolbar>
     <div class="main">
@@ -199,6 +212,8 @@ import ComponentDisplay from '@/components/molecules/ComponentDisplay.vue';
 })
 export default class App extends Vue {
   modal = false;
+
+  menu = false;
 
   sidebar = true;
 

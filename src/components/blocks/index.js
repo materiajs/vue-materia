@@ -24,12 +24,8 @@ export { default as MatPageLayout } from './layout/PageLayout.vue';
 export { default as MatScrollbarLayout } from './layout/ScrollbarLayout.vue';
 export { default as MatSpacer } from './layout/Spacer.vue';
 
-// Logo
-export { default as MateriaLogo } from './logo/MateriaLogo.vue';
-
 // Image
 export { default as MatImage } from './image/ImageComponent.vue';
-export { default as MatAvatar } from './image/Avatar.vue';
 
 // Input
 export { default as MatForm } from './input/MatForm.vue';
