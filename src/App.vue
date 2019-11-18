@@ -39,6 +39,7 @@
       <mat-container
         height="100%"
         width="100%"
+        color="light-blue-3"
       >
         <div @click="closeEditComponent()">
           <mat-container

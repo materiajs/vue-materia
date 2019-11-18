@@ -85,6 +85,7 @@ export default class MatInput extends MatThemeComponent {
     display: flex;
     flex-wrap: wrap;
     min-width: 250px;
+    opacity: 0.75;
     input {
       flex: 1;
       background: rgba(0,0,0,0);
@@ -104,6 +105,7 @@ export default class MatInput extends MatThemeComponent {
       outline: none;
     }
     &:focus-within, &.focused {
+      opacity: 1;
       .mat-input-placeholder {
         .mat-frame-placeholder-bg {
           content: '';
