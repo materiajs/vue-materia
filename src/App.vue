@@ -16,7 +16,9 @@
           <mat-avatar
             slot="trigger"
             size="small"
-            src="https://yt3.ggpht.com/a-/AAuE7mB6UdWfnxd56C-205HHDPSZpyr4j6rr30HCyYXgSw=s88-c-k-c0xffffffff-no-rj-mo" />
+            src="https://yt3.ggpht.com/a-/AAuE7mB6UdWfnxd56C-205HHDPSZpyr4j6rr30HCyYXgSw=s88-c-k-c0xffffffff-no-rj-mo">
+            Andy Feely
+          </mat-avatar>
           <div>
             Sign out
           </div>

@@ -1,9 +1,16 @@
 <template>
-  <img
-    class="mat-avatar"
-    :class="[size]"
-    :style="style"
-    :src="src" :alt="alt">
+  <div class="mat-avatar">
+    <img
+      class=""
+      :class="[size]"
+      :style="style"
+      :src="src" :alt="alt">
+    <div
+      v-if="$slots.default"
+      class="mat-avatar-info">
+      <slot></slot>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -29,21 +36,28 @@ export default {
 
 <style scoped lang="scss">
   .mat-avatar {
-    max-width: 100%;
-    max-height: calc(100% - 10px);
-    border: 2px solid white;
-    box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.3);
-    &.xs {
-      width: 32px;
-      height: 32px;
+    display: flex;
+    align-items: center;
+    img {
+      max-width: 100%;
+      max-height: calc(100% - 10px);
+      border: 2px solid white;
+      box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.3);
+      &.xs {
+        width: 32px;
+        height: 32px;
+      }
+      &.small {
+        width: 45px;
+        height: 45px;
+      }
+      &.regular {
+        width: 100px;
+        height: 100px;
+      }
     }
-    &.small {
-      width: 45px;
-      height: 45px;
-    }
-    &.regular {
-      width: 100px;
-      height: 100px;
+    &-info {
+      margin-left: 15px;
     }
   }
 </style>
