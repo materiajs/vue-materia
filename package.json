@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "build-bundle": "vue-cli-service build --target lib --name vue-materia src/index.ts && npm run build-vuese",
+    "build-bundle": "vue-cli-service build --target lib --name vue-materia src/index.ts",
     "build-vuese": "node ./src/vuese"
   },
   "main": "./dist/vue-materia.common.js",
