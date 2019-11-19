@@ -20,7 +20,7 @@
         class="overlay"></div>
     </transition>
     <transition
-      v-on="transitions.down"
+      v-on="transitions.downUp"
     >
       <div
         v-if="value"

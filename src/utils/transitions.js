@@ -37,6 +37,11 @@ export default {
     beforeLeave: setup({ 'transform-origin': 'top' }),
     leave: setVelocity({ opacity: [0, 1], scaleY: 0.5 }),
   },
+  downUp: {
+    beforeEnter: setup({ opacity: 0 }),
+    enter: setVelocity({ opacity: 1, translateY: [0, '-15px'] }),
+    leave: setVelocity({ opacity: [0, 1], translateY: ['-15px', 0] }),
+  },
   left: {
     beforeEnter: setup({ width: '0' }),
     enter: setVelocity({ opacity: [1, 0], scaleY: [1, 0.5] }),
