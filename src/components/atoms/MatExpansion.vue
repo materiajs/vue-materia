@@ -1,5 +1,8 @@
 <template>
-  <div class="mat-expansion">
+  <div
+    class="mat-expansion"
+    :class="[direction]"
+  >
     <slot />
   </div>
 </template>
@@ -10,13 +13,26 @@ import {
 } from 'vue-property-decorator';
 import Velocity from 'velocity-animate';
 
-@Component()
+@Component({})
+// @name MatExpansion
+// @displayName Expansion
+// @tag mat-expansion
+// Expansion component
 export default class MatExpansion extends Vue {
   @Prop({ type: Boolean })
   value;
 
+  @Prop({
+    // left
+    // right
+    // up
+    // down
+    type: String,
+    default: 'right',
+  })
+  direction;
+
   collapseSection(element) {
-    const sectionWidth = element.scrollWidth;
     Velocity(element, {
       width: 0,
       'min-width': 0,
@@ -27,11 +43,11 @@ export default class MatExpansion extends Vue {
   }
 
   expandSection(element) {
-    const sectionWidth = element.scrollWidth;
+    const sectionWidth = element.firstChild.clientWidth;
     element.style.width = '0';
     Velocity(element, {
-      width: `${sectionWidth}px`,
-      'min-width': `${sectionWidth}px`,
+      width: sectionWidth,
+      'min-width': sectionWidth,
     }, {
       duration: 340,
       easing: [700, 50],
@@ -51,10 +67,18 @@ export default class MatExpansion extends Vue {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .mat-expansion {
     transition:height 0.3s ease-out;
     width: 0;
     overflow: hidden;
+    position: relative;
+    display: flex;
+    &.right {
+      justify-content: flex-end;
+    }
+    >* {
+      flex-shrink: 0;
+    }
   }
 </style>

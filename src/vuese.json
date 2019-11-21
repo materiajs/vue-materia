@@ -25,6 +25,16 @@
         "type": null,
         "describe": []
       }
+    ],
+    "slots": [
+      {
+        "name": "default",
+        "describe": "",
+        "backerDesc": "",
+        "bindings": {},
+        "scoped": false,
+        "target": "template"
+      }
     ]
   },
   "MatButton": {
@@ -329,13 +339,36 @@
   },
   "MatExpansion": {
     "componentDesc": {
-      "default": []
+      "default": [
+        "Expansion component"
+      ],
+      "name": [
+        "MatExpansion"
+      ],
+      "displayName": [
+        "Expansion"
+      ],
+      "tag": [
+        "mat-expansion"
+      ]
     },
     "props": [
       {
         "name": "value",
         "type": "Boolean",
         "describe": []
+      },
+      {
+        "name": "direction",
+        "type": "String",
+        "describe": [],
+        "typeDesc": [
+          "left",
+          "right",
+          "up",
+          "down"
+        ],
+        "default": "right"
       }
     ],
     "slots": [
