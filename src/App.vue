@@ -46,6 +46,7 @@
             max-width="800px"
             padding="15px"
           >
+            <component-selector @input="onSelectComponent" />
             <mat-input
                 v-model="input"
                 size="xl"
@@ -65,7 +66,149 @@
             </mat-checkbox>
             <br>
             <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br> <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br> <mat-checkbox v-model="checkbox">
+            Nice!
+          </mat-checkbox>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+
+            <br>
             <component-selector @input="onSelectComponent" />
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br> <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br> <mat-checkbox v-model="checkbox">
+            Nice!
+          </mat-checkbox>
+            <br>
+            <mat-checkbox v-model="checkbox">
+              Nice!
+            </mat-checkbox>
+            <br>
+
             <br>
             <component-display
               v-for="(component, idx) in rootComponents"

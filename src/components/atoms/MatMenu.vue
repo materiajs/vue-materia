@@ -98,6 +98,12 @@ export default class MatMenu extends MatThemeComponent {
     this.$emit('input', false);
   }
 
+  created() {
+    window.addEventListener('scroll', (e) => {
+      this.onValueChange(this.value);
+    });
+  }
+
   @Watch('value')
   onValueChange(value) {
     const {
