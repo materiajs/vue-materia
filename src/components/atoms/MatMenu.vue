@@ -102,23 +102,31 @@ export default class MatMenu extends MatThemeComponent {
   onValueChange(value) {
     const {
       // bottom,
-      // height,
+      height,
       left,
       right,
-      // top,
+      top,
       // width,
       // x,
       // y,
     } = this.$refs['mat-menu-wrapper'].getBoundingClientRect();
     if (value) {
-      let property = 'left';
-      let propValue = left;
-      if ((window.innerWidth / 2) < left) {
-        property = 'right';
-        propValue = window.innerWidth - right;
-      }
       this.$nextTick(() => {
+        let property = 'left';
+        let propValue = left;
+        let topValue;
+        if ((window.innerWidth / 2) < left) {
+          property = 'right';
+          propValue = window.innerWidth - right;
+        }
+        const { height: theHeight } = this.$refs['menu-main'].getBoundingClientRect();
+        if ((window.innerHeight / 2) < top) {
+          topValue = `${top - theHeight}px`;
+        } else {
+          topValue = `${height + top}px`;
+        }
         this.$refs['menu-main'].style[property] = `${propValue}px`;
+        this.$refs['menu-main'].style.top = topValue;
       });
     }
   }
