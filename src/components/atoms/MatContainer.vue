@@ -1,7 +1,10 @@
 <template functional>
   <div
     class="mat-container"
-    :style="props.initTheme(props)"
+    :style="{
+      ...props.initTheme(props),
+      ...props.containerTheme(props),
+    }"
   >
     <slot />
   </div>
@@ -18,6 +21,19 @@ import MatThemeComponent from './MatThemeComponent.vue';
 // Container component
 export default class MatContainer extends MatThemeComponent {
   @Prop({
+    type: Function,
+    default: props => ({
+      display: props.display,
+      flex: props.flex,
+      height: props.height,
+      width: props.width,
+      'max-width': props.maxWidth,
+      'min-width': props.minWidth,
+    }),
+  })
+  containerTheme;
+
+  @Prop({
     // 5px
     // 15px
     // 20px
@@ -25,16 +41,22 @@ export default class MatContainer extends MatThemeComponent {
   })
   padding;
 
-  @Prop({ default: 'auto', type: String })
+  @Prop({ type: String })
   margin;
 
-  @Prop({ default: 'block', type: String })
+  @Prop({ type: String })
+  flex;
+
+  @Prop({ type: String })
   display;
 
   @Prop({ type: String })
   maxWidth;
 
-  @Prop({ default: 'initial', type: String })
+  @Prop({ type: String })
+  minWidth;
+
+  @Prop({ type: String })
   cursor;
 }
 </script>
