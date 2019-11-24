@@ -149,10 +149,10 @@
               <mat-list v-if="selectedComponent">
                 <template v-for="(prop, idx) in selectedComponent.props">
                   <mat-color-select
-                    v-if="prop.name === 'color'"
+                    v-if="prop.name === 'color' || prop.name === 'gradient'"
                     :key="`${selectedComponent.name}-${prop.name}-${idx}-color-select`"
                     :value="selectedComponent.color"
-                    @input="color => updateSelectedComponentPropValues('color', color)"
+                    @input="color => updateSelectedComponentPropValues(prop.name, color)"
                   />
                   <mat-list-item
                     v-else-if="prop.type === 'Boolean'"
