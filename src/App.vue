@@ -151,7 +151,8 @@
                   <mat-color-select
                     v-if="prop.name === 'color'"
                     :key="`${selectedComponent.name}-${prop.name}-${idx}-color-select`"
-                    @input="color => updateSelectedComponentPropValues('color', color.name)"
+                    :value="selectedComponent.color"
+                    @input="color => updateSelectedComponentPropValues('color', color)"
                   />
                   <mat-list-item
                     v-else-if="prop.type === 'Boolean'"

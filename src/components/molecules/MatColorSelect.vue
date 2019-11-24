@@ -55,7 +55,7 @@ import theme from '@materiajs/theme';
 // @tag mat-color-select
 // Color select component
 export default class MatColorSelect extends Vue {
-  @Prop({ default: null, type: Object })
+  @Prop({ default: null, type: String })
   value;
 
   menu = false;
@@ -69,10 +69,10 @@ export default class MatColorSelect extends Vue {
   }
 
   get selectedColor() {
-    return this.value;
+    return this.paletteColors.find(color => color.value === this.value);
   }
 
-  set selectedColor(value) {
+  set selectedColor({ value }) {
     this.$emit('input', value);
   }
 

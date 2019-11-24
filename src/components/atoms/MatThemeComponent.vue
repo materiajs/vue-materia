@@ -7,12 +7,13 @@ import theme from '@materiajs/theme';
     initTheme: {
       type: Function,
       default: (props, setDefaults = true) => ({
-        '--color': props.color ? `var(--${props.color})` : undefined,
+        // eslint-disable-next-line
+        '--color': props.color ? (props.color.includes('#') ? props.color : `var(--${props.color})`) : undefined,
         '--gradient-color': props.gradient ? `var(--${props.gradient})` : undefined,
         '--gradient-direction': props.gradientDirection || undefined,
         '--text-color': props.color
           ? theme.computeTextColor(
-            document.documentElement.style.getPropertyValue(`--${props.color}`),
+            (props.color.includes('#') ? props.color : document.documentElement.style.getPropertyValue(`--${props.color}`)),
             true,
           )
           : undefined,
