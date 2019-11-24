@@ -54,6 +54,24 @@ export default {
     beforeLeave: { 'transform-origin': 'top right' },
     leave: { opacity: [0, 1], scale: 0.2 },
   }),
+  expandCollapseVertical: {
+    beforeEnter: setup({
+      'min-height': 0, height: 0, overflow: 'hidden',
+    }),
+    enter: (element, done) => {
+      const sectionHeight = element.scrollHeight;
+      Velocity(element, {
+        complete: done,
+        height: sectionHeight,
+        'min-height': sectionHeight,
+      }, {
+        duration: 300,
+        easing: [700, 50],
+      });
+      // setVelocity({ opacity: 1, translateY: [0, '-15px'] });
+    },
+    leave: setVelocity({ height: 0, 'min-height': 0 }),
+  },
   // 'up-down': () => ({
   //   beforeEnter: { opacity: 0 },
   //   enter: { opacity: 1, translateY: [0, '25px'] },
