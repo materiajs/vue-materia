@@ -40,6 +40,10 @@ export default {
   downUp: {
     beforeEnter: setup({ opacity: 0 }),
     enter: setVelocity({ opacity: 1, translateY: [0, '-15px'] }),
+    afterEnter: (el) => {
+      el.style.opacity = 'initial';
+      el.style.transform = 'initial';
+    },
     leave: setVelocity({ opacity: [0, 1], translateY: ['-15px', 0] }),
   },
   left: {
