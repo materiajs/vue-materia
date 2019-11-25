@@ -18,7 +18,7 @@
     "*.js"
   ],
   "dependencies": {
-    "@materiajs/theme": "^1.0.10",
+    "@materiajs/theme": "^1.0.11",
     "@vuese/parser": "^2.4.3",
     "core-js": "^3.1.2",
     "fs": "0.0.1-security",
