@@ -18,7 +18,7 @@ import theme from '@materiajs/theme';
           '--gradient-direction': props.gradientDirection || undefined,
           '--text-color': props.color
             ? theme.computeTextColor(
-              (isHash ? props.color : document.documentElement.style.getPropertyValue(`--${props.color}`)),
+              isHash ? props.color : document.documentElement.style.getPropertyValue(`--${props.color}`),
               true,
             )
             : undefined,
